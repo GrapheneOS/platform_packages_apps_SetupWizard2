@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:contentDescription="@string/grapheneos_icon"
+        android:src="@drawable/baseline_android" />
+
+    <!-- TODO: should ideally just follow material UI themes // modification of line height is not good -->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_to_grapheneos"
+        android:textColor="@color/white"
+        android:theme="@style/TextAppearance.Material3.DisplayMedium"
+        app:lineHeight="40sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/grapheneos_desc"
+        android:textColor="@color/white"
+        android:theme="@style/TextAppearance.Material3.BodySmall" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/lets_setup_your_phone"
+        android:textColor="@color/white"
+        android:theme="@style/TextAppearance.Material3.BodySmall" />
+
+    <!--        language should be a dropdown-->
+    <LinearLayout
+        android:id="@+id/language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/language_icon"
+            android:src="@drawable/baseline_language" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/english_united_states"
+            android:textColor="@color/white"
+            android:theme="@style/TextAppearance.Material3.BodySmall" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/accessibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/accessibility_icon"
+            android:src="@drawable/baseline_accessibility_new" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/accessibility_settings"
+            android:textColor="@color/white"
+            android:theme="@style/TextAppearance.Material3.BodySmall" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/emergency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/emergency_call"
+            android:textColor="@color/white"
+            android:theme="@style/TextAppearance.Material3.BodySmall" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/button_highlight_blue"
+            android:text="@string/next"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+</LinearLayout>

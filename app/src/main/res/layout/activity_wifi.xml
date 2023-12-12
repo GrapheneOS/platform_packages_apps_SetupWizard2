@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/wifi_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/wi_fi_icon"
+        android:src="@drawable/baseline_wifi" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wifi_screen_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wifi_icon"
+        android:text="@string/connect_to_wi_fi"
+        android:textColor="@color/white"
+        android:theme="@style/TextAppearance.Material3.DisplayMedium"
+        app:lineHeight="40sp" />
+
+    <ListView
+        android:id="@+id/wifi_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/wifi_skip"
+        android:layout_below="@id/wifi_screen_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wifi_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/connect"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:text="@string/set_up_without_wi_fi"
+        android:textColor="@color/white"
+        android:theme="@style/TextAppearance.Material3.BodySmall" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/button_highlight_blue"
+        android:text="@string/connect"
+        android:textColor="@color/black" />
+
+</RelativeLayout>
