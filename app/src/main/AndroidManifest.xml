@@ -17,11 +17,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/SudThemeGlif.DayNight">
+        android:theme="@style/Theme.SetupWizard.M3">
         <activity
             android:name="org.grapheneos.setupwizard.view.activity.WelcomeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.SetupWizard">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,18 +28,10 @@
                 <category android:name="android.intent.category.SETUP_WIZARD" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.activity.LocationActivity"
-            android:theme="@style/Theme.SetupWizard" />
-        <activity
-            android:name=".view.activity.SecurityActivity"
-            android:theme="@style/Theme.SetupWizard" />
-        <activity
-            android:name=".view.activity.MigrationActivity"
-            android:theme="@style/Theme.SetupWizard" />
-        <activity
-            android:name=".view.activity.FinishActivity"
-            android:theme="@style/Theme.SetupWizard" />
+        <activity android:name=".view.activity.LocationActivity" />
+        <activity android:name=".view.activity.SecurityActivity" />
+        <activity android:name=".view.activity.MigrationActivity" />
+        <activity android:name=".view.activity.FinishActivity" />
     </application>
 
 </manifest>

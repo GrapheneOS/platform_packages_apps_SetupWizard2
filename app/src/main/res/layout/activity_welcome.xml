@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingHorizontal="20dp"
@@ -15,7 +14,7 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:contentDescription="@string/grapheneos_icon"
-        android:src="@drawable/baseline_android" />
+        android:src="@drawable/grapheneos_icon" />
 
     <!-- TODO: should ideally just follow material UI themes // modification of line height is not good -->
     <com.google.android.material.textview.MaterialTextView
@@ -23,23 +22,20 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome_to_grapheneos"
         android:textAppearance="@style/TextAppearance.Material3.DisplayMedium"
-        android:textColor="@color/white"
         app:lineHeight="40sp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/grapheneos_desc"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/lets_setup_your_phone"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
 
     <!--        language should be a dropdown-->
     <LinearLayout
@@ -62,8 +58,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/english_united_states"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="@color/white" />
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
     </LinearLayout>
 
     <LinearLayout
@@ -84,8 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/accessibility_settings"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="@color/white" />
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
     </LinearLayout>
 
     <RelativeLayout
@@ -93,17 +87,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
 
-        <com.google.android.material.textview.MaterialTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/emergency"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
-            android:backgroundTint="@color/black"
-            android:text="@string/emergency_call"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="@color/white" />
+            android:text="@string/emergency_call" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/next"
@@ -111,9 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:backgroundTint="@color/button_highlight_blue"
             android:text="@string/next"
-            android:textColor="@color/black"
             tools:ignore="RelativeOverlap" />
     </RelativeLayout>
 </LinearLayout>

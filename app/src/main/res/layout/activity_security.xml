@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingHorizontal="20dp"
@@ -21,16 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/set_up_biometric_unlock"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/biometric_unlock_desc"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
@@ -40,8 +37,7 @@
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:text="@string/set_up_a_secondary_unlock_method"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
@@ -51,8 +47,7 @@
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:text="@string/set_up_fingerprint_unlock"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
@@ -62,25 +57,22 @@
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:text="@string/optionally_set_up_face_unlock"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-        android:textColor="@color/white" />
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
 
-        <com.google.android.material.textview.MaterialTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/skip"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="5dp"
-            android:backgroundTint="@color/black"
-            android:text="@string/skip"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="@color/white" />
+            android:text="@string/skip" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/setup"
@@ -88,9 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:backgroundTint="@color/button_highlight_blue"
             android:text="@string/set_up"
-            android:textColor="@color/black"
             tools:ignore="RelativeOverlap" />
     </RelativeLayout>
 </LinearLayout>
