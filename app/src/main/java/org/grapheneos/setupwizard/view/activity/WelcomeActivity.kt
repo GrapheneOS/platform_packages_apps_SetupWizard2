@@ -3,8 +3,11 @@ package org.grapheneos.setupwizard.view.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.MainThread
+import com.google.android.setupcompat.template.FooterButtonStyleUtils
+import com.google.android.setupdesign.GlifLayout
 import org.grapheneos.setupwizard.R
 import org.grapheneos.setupwizard.action.SetupWizard
 import org.grapheneos.setupwizard.action.WelcomeActions
@@ -16,8 +19,7 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
         private const val TAG = "WelcomeActivity"
     }
 
-    private lateinit var language: View
-    private lateinit var languageText: TextView
+    private lateinit var language: TextView
     private lateinit var accessibility: View
     private lateinit var emergency: View
     private lateinit var next: View
@@ -30,13 +32,12 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
     @MainThread
     override fun bindViews() {
         language = findViewById(R.id.language)
-        languageText = findViewById(R.id.languageText)
         accessibility = findViewById(R.id.accessibility)
         emergency = findViewById(R.id.emergency)
         next = findViewById(R.id.next)
         WelcomeData.selectedLanguage.observe(this) {
             Log.d(TAG, "selectedLanguage: ${it.displayName}")
-            languageText.text = it.displayName
+            this.language.text = it.displayName
         }
     }
 

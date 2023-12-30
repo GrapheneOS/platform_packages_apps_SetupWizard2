@@ -6,103 +6,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="50dp">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:contentDescription="@string/grapheneos_icon"
-        android:src="@drawable/grapheneos_icon" />
-
-    <!-- TODO: should ideally just follow material UI themes // modification of line height is not good -->
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome_to_grapheneos"
-        android:textAppearance="@style/TextAppearance.Material3.DisplayMedium"
-        app:lineHeight="40sp" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/grapheneos_desc"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/lets_setup_your_phone"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
-
-    <!--        language should be a dropdown-->
     <LinearLayout
-        android:id="@+id/language"
+        style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/language_icon"
-            android:src="@drawable/baseline_language" />
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/grapheneos_icon"
+            android:src="@drawable/grapheneos_icon" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/languageText"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:lineHeight="45dp"
+            android:text="@string/welcome_to_grapheneos"
+            android:textAppearance="@style/TextAppearance.Material3.DisplayMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/grapheneos_desc"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/lets_setup_your_phone"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+
+        <Button
+            android:id="@+id/language"
+            style="@style/SudGlifButton.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/baseline_language"
+            android:drawablePadding="@dimen/button_drawable_padding"
+            android:gravity="center_vertical"
             android:text="@string/english_united_states"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <Button
+            android:id="@+id/accessibility"
+            style="@style/SudGlifButton.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_accessibility_new"
+            android:drawablePadding="@dimen/button_drawable_padding"
+            android:gravity="center_vertical"
+            android:text="@string/accessibility"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/accessibility"
+        style="@style/SudGlifButtonBar.Stackable"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/accessibility_icon"
-            android:src="@drawable/baseline_accessibility_new" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/accessibility_settings"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/emergency"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SudGlifButton.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:text="@string/emergency_call" />
 
-        <com.google.android.material.button.MaterialButton
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
             android:id="@+id/next"
+            style="@style/SudGlifButton.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:text="@string/next"
-            tools:ignore="RelativeOverlap" />
-    </RelativeLayout>
+            android:text="@string/next" />
+    </LinearLayout>
 </LinearLayout>

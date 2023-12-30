@@ -17,10 +17,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SetupWizard.M3">
+        android:theme="@style/Theme.AppCompat">
         <activity
             android:name="org.grapheneos.setupwizard.view.activity.WelcomeActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,6 +33,13 @@
         <activity android:name=".view.activity.SecurityActivity" />
         <activity android:name=".view.activity.MigrationActivity" />
         <activity android:name=".view.activity.FinishActivity" />
+
+        <provider
+            android:name=".android.contentprovider.SetupDesignConfigProvider"
+            android:authorities="com.google.android.setupwizard.partner"
+            android:directBootAware="true"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
     </application>
 
 </manifest>

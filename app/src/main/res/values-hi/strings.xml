@@ -7,9 +7,7 @@
     <string name="grapheneos_desc">गोपनीयता और सुरक्षा, आपके मोबाइल डिवाइस के लिए तैयार की गई, हर किसी के उपयोग के लिए उपयुक्त।</string>
     <string name="lets_setup_your_phone">आइए कुछ चरणों में अपना फ़ोन सेट करें।</string>
     <string name="english_united_states">अंग्रेजी (संयुक्त राज्य अमेरिका)</string>
-    <string name="accessibility_settings">अभिगम्यता सेटिंग्स</string>
-    <string name="accessibility_icon">अभिगम्यता चिह्न</string>
-    <string name="language_icon">भाषा चिह्न</string>
+    <string name="accessibility">अभिगम्यता सेटिंग्स</string>
     <string name="emergency_call">आपातकालीन फोन</string>
     <string name="wi_fi_icon">वाई-फ़ाई चिह्न</string>
     <string name="connect_to_wi_fi">वाई-फ़ाई से कनेक्ट करें</string>

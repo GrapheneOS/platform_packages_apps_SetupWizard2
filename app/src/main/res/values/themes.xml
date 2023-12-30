@@ -43,5 +43,12 @@
         <item name="isMaterial3Theme">true</item>
         <item name="isMaterial3DynamicColorApplied">true</item>
         <item name="sucFullDynamicColor">true</item>
+        <item name="sucUsePartnerResource">true</item>
+        <item name="sudUsePartnerHeavyTheme">true</item>
+    </style>
+
+    <style name="Theme.Setup" parent="@style/SudFullDynamicColorThemeGlifV3.Light">
+        <item name="sucUsePartnerResource">true</item>
+        <item name="sudUsePartnerHeavyTheme">true</item>
     </style>
 </resources>

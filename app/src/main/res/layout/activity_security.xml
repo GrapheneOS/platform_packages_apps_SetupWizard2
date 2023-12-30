@@ -7,80 +7,90 @@
     android:layout_height="match_parent"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="50dp">
+    tools:ignore="UseCompatTextViewDrawableXml">
 
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:contentDescription="@string/fingerprint_icon"
-        android:src="@drawable/baseline_fingerprint" />
-
-    <com.google.android.material.textview.MaterialTextView
+    <LinearLayout
+        style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/set_up_biometric_unlock"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge" />
+        android:orientation="vertical">
 
-    <com.google.android.material.textview.MaterialTextView
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/fingerprint_icon"
+            android:src="@drawable/baseline_fingerprint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/set_up_biometric_unlock"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/biometric_unlock_desc"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/baseline_lock_open"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/sud_glif_button_padding"
+            android:text="@string/set_up_a_secondary_unlock_method"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/baseline_fingerprint"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/sud_glif_button_padding"
+            android:text="@string/set_up_fingerprint_unlock"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/baseline_tag_faces"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/sud_glif_button_padding"
+            android:text="@string/optionally_set_up_face_unlock"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/SudGlifButtonBar.Stackable"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/biometric_unlock_desc"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/baseline_lock_open"
-        android:drawablePadding="10dp"
-        android:gravity="center_vertical"
-        android:text="@string/set_up_a_secondary_unlock_method"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/baseline_fingerprint"
-        android:drawablePadding="10dp"
-        android:gravity="center_vertical"
-        android:text="@string/set_up_fingerprint_unlock"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/baseline_tag_faces"
-        android:drawablePadding="10dp"
-        android:gravity="center_vertical"
-        android:text="@string/optionally_set_up_face_unlock"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/skip"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SudGlifButton.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
             android:text="@string/skip" />
 
-        <com.google.android.material.button.MaterialButton
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
             android:id="@+id/setup"
+            style="@style/SudGlifButton.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:text="@string/set_up"
-            tools:ignore="RelativeOverlap" />
-    </RelativeLayout>
+            android:text="@string/set_up" />
+    </LinearLayout>
 </LinearLayout>

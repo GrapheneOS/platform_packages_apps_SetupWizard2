@@ -6,7 +6,11 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import androidx.annotation.StyleRes
+import com.google.android.setupcompat.partnerconfig.PartnerConfigHelper
 import com.google.android.setupcompat.util.WizardManagerHelper
+import com.google.android.setupdesign.util.PartnerStyleHelper
+import com.google.android.setupdesign.util.ThemeHelper
 import org.grapheneos.setupwizard.appContext
 import org.grapheneos.setupwizard.view.activity.MigrationActivity
 import org.grapheneos.setupwizard.view.activity.FinishActivity
@@ -60,5 +64,16 @@ object SetupWizard {
      */
     private fun prepareIntent(context: Context, intent: Intent) {
         intent.putExtra(WizardManagerHelper.EXTRA_IS_FIRST_RUN, true)
+        intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true)
+        intent.putExtra(WizardManagerHelper.EXTRA_THEME, getDefaultThemeName())
+    }
+
+    @StyleRes
+    fun getDefaultTheme(): Int {
+        return ThemeHelper.getSuwDefaultTheme(appContext)
+    }
+
+    private fun getDefaultThemeName(): String? {
+        return PartnerConfigHelper.getSuwDefaultThemeString(appContext)
     }
 }

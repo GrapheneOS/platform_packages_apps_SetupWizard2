@@ -1,3 +1,8 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="button_drawable_padding">24dp</dimen>
+    <dimen name="text_drawable_padding">10dp</dimen>
+
+    <dimen name="welcome_content_container_padding_bottom">0dp</dimen>
+    <dimen name="welcome_content_container_padding_end">24dp</dimen>
+    <dimen name="welcome_content_container_padding_start">40dp</dimen>
 </resources>

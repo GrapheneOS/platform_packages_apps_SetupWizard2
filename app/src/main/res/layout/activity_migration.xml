@@ -6,51 +6,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="50dp">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:contentDescription="@string/data_restore_icon"
-        android:src="@drawable/baseline_restore" />
-
-    <com.google.android.material.textview.MaterialTextView
+    <LinearLayout
+        style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/restore_apps_and_data"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge" />
+        android:orientation="vertical">
 
-    <com.google.android.material.textview.MaterialTextView
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/data_restore_icon"
+            android:src="@drawable/baseline_restore" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/restore_apps_and_data"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/data_restore_desc"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/SudGlifButtonBar.Stackable"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/data_restore_desc"
-        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+        android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/skip"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/SudGlifButton.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
             android:text="@string/skip" />
 
-        <com.google.android.material.button.MaterialButton
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
             android:id="@+id/next"
+            style="@style/SudGlifButton.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:text="@string/next"
-            tools:ignore="RelativeOverlap" />
-    </RelativeLayout>
+            android:text="@string/next" />
+    </LinearLayout>
 </LinearLayout>

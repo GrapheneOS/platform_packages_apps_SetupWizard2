@@ -7,9 +7,7 @@
     <string name="grapheneos_desc">Privacy and security, crafted for your mobile device, usable by everyone.</string>
     <string name="lets_setup_your_phone">Let\'s set up your phone in a few steps.</string>
     <string name="english_united_states">English (United States)</string>
-    <string name="accessibility_settings">Accessibility Settings</string>
-    <string name="accessibility_icon">Accessibility Icon</string>
-    <string name="language_icon">Language Icon</string>
+    <string name="accessibility">Accessibility</string>
     <string name="emergency_call">Emergency Call</string>
     <string name="wi_fi_icon">Wi-Fi Icon</string>
     <string name="connect_to_wi_fi">Connect to Wi-Fi</string>
