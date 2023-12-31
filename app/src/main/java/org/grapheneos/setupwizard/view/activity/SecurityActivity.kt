@@ -7,7 +7,12 @@ import org.grapheneos.setupwizard.R
 import org.grapheneos.setupwizard.action.SecurityActions
 import org.grapheneos.setupwizard.action.SetupWizard
 
-class SecurityActivity : SetupWizardActivity(R.layout.activity_security) {
+class SecurityActivity : SetupWizardActivity(
+    R.layout.activity_security,
+    R.drawable.baseline_fingerprint_glif,
+    R.string.set_up_biometric_unlock,
+    R.string.biometric_unlock_desc
+) {
     private lateinit var skip: View
     private lateinit var setup: View
 

@@ -7,7 +7,11 @@ import org.grapheneos.setupwizard.action.LocationActions
 import org.grapheneos.setupwizard.action.SetupWizard
 import org.grapheneos.setupwizard.data.LocationData
 
-class LocationActivity : SetupWizardActivity(R.layout.activity_location) {
+class LocationActivity : SetupWizardActivity(
+    R.layout.activity_location,
+    R.drawable.baseline_location_on_glif,
+    R.string.location_services
+) {
     private lateinit var enabled: CheckBox
     private lateinit var next: View
 

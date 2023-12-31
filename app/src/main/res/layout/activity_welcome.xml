@@ -12,7 +12,8 @@
         style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="0dp">
 
         <ImageView
             android:layout_width="64dp"
@@ -25,21 +26,22 @@
             android:layout_height="wrap_content"
             android:lineHeight="45dp"
             android:text="@string/welcome_to_grapheneos"
-            android:textAppearance="@style/TextAppearance.Material3.DisplayMedium" />
+            android:textAppearance="@style/TextAppearance.Material3.DisplayMedium"
+            android:textColor="?android:attr/textColorPrimary" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/grapheneos_desc"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+            android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/lets_setup_your_phone"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+            android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
 
         <Button
             android:id="@+id/language"
@@ -51,7 +53,7 @@
             android:drawablePadding="@dimen/button_drawable_padding"
             android:gravity="center_vertical"
             android:text="@string/english_united_states"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+            android:textColor="?android:attr/textColorPrimary" />
 
         <Button
             android:id="@+id/accessibility"
@@ -62,7 +64,7 @@
             android:drawablePadding="@dimen/button_drawable_padding"
             android:gravity="center_vertical"
             android:text="@string/accessibility"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+            android:textColor="?android:attr/textColorPrimary" />
     </LinearLayout>
 
     <LinearLayout

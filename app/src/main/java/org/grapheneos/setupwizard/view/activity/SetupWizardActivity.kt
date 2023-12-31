@@ -1,23 +1,40 @@
 package org.grapheneos.setupwizard.view.activity
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.MainThread
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.updatePadding
-import com.google.android.material.color.DynamicColors
-import com.google.android.material.elevation.SurfaceColors
+import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.util.ThemeHelper
-import org.grapheneos.setupwizard.action.SetupWizard
+import org.grapheneos.setupwizard.R
 
 
 /**
  * This is the base activity for all setup wizard activities.
  */
-abstract class SetupWizardActivity(@LayoutRes val layoutResID: Int) : AppCompatActivity() {
+abstract class SetupWizardActivity(
+    @LayoutRes val layoutResID: Int,
+    @DrawableRes val icon: Int?,
+    @StringRes val header: Int?,
+    @StringRes val description: Int?
+) : AppCompatActivity() {
+
+    constructor(@LayoutRes layoutResID: Int)
+            : this(layoutResID, null, null, null)
+
+    constructor(@LayoutRes layoutResID: Int, @DrawableRes icon: Int) :
+            this(layoutResID, icon, null, null)
+
+    constructor(@LayoutRes layoutResID: Int, @DrawableRes icon: Int, @StringRes header: Int) :
+            this(layoutResID, icon, header, null)
+
+    private var glifLayout: GlifLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +46,22 @@ abstract class SetupWizardActivity(@LayoutRes val layoutResID: Int) : AppCompatA
         )
         setContentView(layoutResID)
         window.decorView.setOnApplyWindowInsetsListener { view, insets ->
-            view.updatePadding(bottom = insets.getInsets(WindowInsets.Type.systemBars()).bottom)
+            view.updatePadding(
+                top = insets.getInsets(WindowInsets.Type.systemBars()).top,
+                bottom = insets.getInsets(WindowInsets.Type.navigationBars()).bottom
+            )
             insets
         }
+        initBaseView()
         bindViews()
         setupActions()
+    }
+
+    private fun initBaseView() {
+        glifLayout = findViewById(R.id.glif_layout)
+        if (icon != null) glifLayout?.icon = getDrawable(icon)
+        if (header != null) glifLayout?.setHeaderText(header)
+        if (description != null) glifLayout?.setDescriptionText(description)
     }
 
     @MainThread

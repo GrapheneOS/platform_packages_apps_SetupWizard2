@@ -8,7 +8,12 @@ import org.grapheneos.setupwizard.action.MigrationActions
 import org.grapheneos.setupwizard.action.SecurityActions
 import org.grapheneos.setupwizard.action.SetupWizard
 
-class MigrationActivity : SetupWizardActivity(R.layout.activity_migration) {
+class MigrationActivity : SetupWizardActivity(
+    R.layout.activity_migration,
+    R.drawable.baseline_restore_glif,
+    R.string.restore_apps_and_data,
+    R.string.data_restore_desc
+) {
     companion object {
         private const val TAG = "MigrationActivity"
     }

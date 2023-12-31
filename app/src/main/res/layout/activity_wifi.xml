@@ -12,7 +12,6 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_alignParentTop="true"
-        android:contentDescription="@string/wi_fi_icon"
         android:src="@drawable/baseline_wifi" />
 
     <com.google.android.material.textview.MaterialTextView

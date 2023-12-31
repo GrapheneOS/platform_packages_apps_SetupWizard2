@@ -1,58 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.setupdesign.GlifLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/glif_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="bottom"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
         style="@style/SudContentFrame"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:gravity="center">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:contentDescription="@string/done_icon"
-            android:src="@drawable/baseline_done_all" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/you_re_all_set_now"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/setup_done_desc"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="30dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/grapheneos_icon"
-                android:src="@drawable/grapheneos_icon" />
-        </LinearLayout>
+            android:layout_width="?attr/sudContentIllustrationMaxWidth"
+            android:layout_height="?attr/sudContentIllustrationMaxHeight"
+            android:layout_marginBottom="50dp"
+            android:contentDescription="@string/grapheneos_icon"
+            android:paddingTop="?attr/sudContentIllustrationPaddingTop"
+            android:paddingBottom="?attr/sudContentIllustrationPaddingBottom"
+            android:src="@drawable/grapheneos_icon" />
     </LinearLayout>
 
     <LinearLayout
         style="@style/SudGlifButtonBar.Stackable"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
 
         <Space
             android:layout_width="0dp"
@@ -66,4 +41,4 @@
             android:layout_height="wrap_content"
             android:text="@string/start" />
     </LinearLayout>
-</LinearLayout>
+</com.google.android.setupdesign.GlifLayout>
