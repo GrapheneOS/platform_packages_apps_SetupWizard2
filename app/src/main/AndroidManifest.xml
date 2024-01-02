@@ -20,8 +20,7 @@
         android:theme="@style/Theme.AppCompat">
         <activity
             android:name="org.grapheneos.setupwizard.view.activity.WelcomeActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
