@@ -15,8 +15,8 @@
     <string name="choose_your_language">आफ्नो भाषा छान्नुहोस्</string>
     <string name="location_services">स्थान सेवाहरू</string>
     <string name="location_access_desc">तपाईंको स्थान जानकारी प्रयोग गर्न अनुमति माग्ने एपहरूलाई अनुमति दिनुहोस्। यसले तपाईंको हालको स्थान र विगतका स्थानहरू समावेश गर्न सक्छ।</string>
-    <string name="restore_apps_and_data"><![CDATA[एप्स र डेटा रिस्टोर गर्नुहोस्]]></string>
-    <string name="data_restore_desc">यदि तपाइँसँग तपाइँको पछिल्लो GrapheneOS फोनबाट ब्याकअप छ भने, तपाइँ यसलाई यहाँ पुनर्स्थापना गर्न सक्नुहुन्छ।</string>
+    <string name="restore_apps_and_data">एप्स र डेटा रिस्टोर गर्नुहोस्></string>
+    <string name="data_restore_desc">यदि तपाइँसँग तपाइँको पछिल्लो ग्राफीनओएस फोनबाट ब्याकअप छ भने, तपाइँ यसलाई यहाँ पुनर्स्थापना गर्न सक्नुहुन्छ।</string>
     <string name="you_re_all_set_now">तपाईं अब पूर्ण रूपमा तयार हुनुहुन्छ!</string>
     <string name="setup_done_desc">तपाईं आफ्नो फोन प्रयोग गर्न सुरु गर्न तयार हुनुहुन्छ</string>
     <string name="set_up_biometric_unlock">बायोमेट्रिक अनलक सेटअप गर्नुहोस्</string>
@@ -26,4 +26,10 @@
     <string name="optionally_set_up_face_unlock">वैकल्पिक रूपमा फेस अनलक सेटअप गर्नुहोस्</string>
     <string name="set_up">सेटअप गर्नुहोस्</string>
     <string name="start">सुरु गर्नुहोस्</string>
+    <string name="date_and_time">मिति र समय</string>
+    <string name="date_and_time_desc">आफ्नो समय क्षेत्र सेट गर्नुहोस् र आवश्यक भएमा हालको मिति र समय समायोजन गर्नुहोस्</string>
+    <string name="date">मिति</string>
+    <string name="time">समय</string>
+    <string name="time_zone">समय क्षेत्र</string>
+    <string name="select_time_zone">समय क्षेत्र चयन गर्नुहोस्</string>
 </resources>

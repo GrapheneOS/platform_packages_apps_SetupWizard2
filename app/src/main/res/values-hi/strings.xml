@@ -15,7 +15,7 @@
     <string name="choose_your_language">अपनी भाषा चुनें</string>
     <string name="location_services">स्थान सेवाएं</string>
     <string name="location_access_desc">उन ऐप्स को अनुमति दें जिन्होंने आपकी स्थान जानकारी का उपयोग करने के लिए आपसे अनुमति मांगी है। इसमें आपका वर्तमान स्थान और पिछले स्थान शामिल हो सकते हैं।</string>
-    <string name="restore_apps_and_data"><![CDATA[ऐप्स और डेटा पुनर्स्थापित करें]]></string>
+    <string name="restore_apps_and_data">ऐप्स और डेटा पुनर्स्थापित करें></string>
     <string name="data_restore_desc">यदि आपके पास अपने पिछले ग्राफीनओएस फोन का बैकअप है, तो आप इसे यहां पुनर्स्थापित कर सकते हैं।</string>
     <string name="you_re_all_set_now">अब आप पूरी तरह तैयार हैं!</string>
     <string name="setup_done_desc">आप अपने फ़ोन का उपयोग शुरू करने के लिए तैयार हैं</string>
@@ -26,4 +26,10 @@
     <string name="optionally_set_up_face_unlock">वैकल्पिक रूप से फेस अनलॉक सेटअप करें</string>
     <string name="set_up">सेटअप करें</string>
     <string name="start">शुरू करें</string>
+    <string name="date_and_time">दिनांक और समय</string>
+    <string name="date_and_time_desc">अपना समय क्षेत्र निर्धारित करें और यदि आवश्यक हो तो वर्तमान दिनांक और समय समायोजित करें</string>
+    <string name="date">तारीख</string>
+    <string name="time">समय</string>
+    <string name="time_zone">समय क्षेत्र</string>
+    <string name="select_time_zone">समय क्षेत्र चुनें</string>
 </resources>

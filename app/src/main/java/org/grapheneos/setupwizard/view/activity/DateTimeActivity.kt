@@ -1,0 +1,57 @@
+package org.grapheneos.setupwizard.view.activity
+
+import android.view.View
+import android.widget.TextView
+import org.grapheneos.setupwizard.R
+import org.grapheneos.setupwizard.action.DateTimeActions
+import org.grapheneos.setupwizard.action.SetupWizard
+import org.grapheneos.setupwizard.data.DateTimeData
+
+class DateTimeActivity : SetupWizardActivity(
+    R.layout.activity_datetime,
+    R.drawable.baseline_today,
+    R.string.date_and_time,
+    R.string.date_and_time_desc
+) {
+    companion object {
+        private const val TAG = "DateTimeActivity"
+    }
+
+    private lateinit var timezoneContainer: View
+    private lateinit var timezone: TextView
+    private lateinit var dateContainer: View
+    private lateinit var date: TextView
+    private lateinit var timeContainer: View
+    private lateinit var time: TextView
+    private lateinit var next: View
+
+    override fun onResume() {
+        super.onResume()
+        DateTimeActions.handleEntry()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        DateTimeActions.handleExit()
+    }
+
+    override fun bindViews() {
+        timezoneContainer = findViewById(R.id.timezone_container)
+        timezone = findViewById(R.id.timezone)
+        dateContainer = findViewById(R.id.date_container)
+        date = findViewById(R.id.date)
+        timeContainer = findViewById(R.id.time_container)
+        time = findViewById(R.id.time)
+        next = findViewById(R.id.next)
+        DateTimeData.timeZone.observe(this) { timezone.text = it }
+        DateTimeData.date.observe(this) { date.text = it }
+        DateTimeData.time.observe(this) { time.text = it }
+    }
+
+    override fun setupActions() {
+        timezoneContainer.setOnClickListener { DateTimeActions.showTimeZonePicker(this) }
+        dateContainer.setOnClickListener { DateTimeActions.showDatePicker(this) }
+        timeContainer.setOnClickListener { DateTimeActions.showTimePicker(this) }
+        next.setOnClickListener { SetupWizard.next(this) }
+    }
+}

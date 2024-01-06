@@ -26,4 +26,10 @@
     <string name="optionally_set_up_face_unlock">Optionally set up face unlock</string>
     <string name="set_up">Set up</string>
     <string name="start">Start</string>
+    <string name="date_and_time">Date and time</string>
+    <string name="date_and_time_desc">Set your time zone and adjust current date and time if needed</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="time_zone">Time zone</string>
+    <string name="select_time_zone">Select time zone</string>
 </resources>

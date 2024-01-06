@@ -12,6 +12,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper
 import com.google.android.setupdesign.util.PartnerStyleHelper
 import com.google.android.setupdesign.util.ThemeHelper
 import org.grapheneos.setupwizard.appContext
+import org.grapheneos.setupwizard.view.activity.DateTimeActivity
 import org.grapheneos.setupwizard.view.activity.MigrationActivity
 import org.grapheneos.setupwizard.view.activity.FinishActivity
 import org.grapheneos.setupwizard.view.activity.LocationActivity
@@ -26,6 +27,7 @@ object SetupWizard {
     // which means the launching of next activity will be a pure function
     private val activities = listOf<Class<out Activity>>(
         WelcomeActivity::class.java,
+        DateTimeActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,
         MigrationActivity::class.java,
