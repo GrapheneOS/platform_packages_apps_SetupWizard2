@@ -8,7 +8,6 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.MainThread
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.updatePadding
 import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.util.ThemeHelper
@@ -19,12 +18,13 @@ import org.grapheneos.setupwizard.R
  * This is the base activity for all setup wizard activities.
  */
 abstract class SetupWizardActivity(
-    @LayoutRes val layoutResID: Int,
+    @LayoutRes val layoutResID: Int?,
     @DrawableRes val icon: Int?,
     @StringRes val header: Int?,
     @StringRes val description: Int?
 ) : AppCompatActivity() {
 
+    constructor() : this(null, null, null, null)
     constructor(@LayoutRes layoutResID: Int)
             : this(layoutResID, null, null, null)
 
@@ -44,6 +44,8 @@ abstract class SetupWizardActivity(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+        if (layoutResID == null) return
+        // setup view
         setContentView(layoutResID)
         window.decorView.setOnApplyWindowInsetsListener { view, insets ->
             view.updatePadding(

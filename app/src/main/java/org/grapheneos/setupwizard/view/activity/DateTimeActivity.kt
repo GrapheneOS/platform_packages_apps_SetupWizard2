@@ -9,7 +9,7 @@ import org.grapheneos.setupwizard.data.DateTimeData
 
 class DateTimeActivity : SetupWizardActivity(
     R.layout.activity_datetime,
-    R.drawable.baseline_today,
+    R.drawable.baseline_today_glif,
     R.string.date_and_time,
     R.string.date_and_time_desc
 ) {

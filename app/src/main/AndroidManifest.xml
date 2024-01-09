@@ -31,6 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.DateTimeActivity" />
+        <activity android:name=".view.activity.WifiActivity" />
         <activity android:name=".view.activity.LocationActivity" />
         <activity android:name=".view.activity.SecurityActivity" />
         <activity android:name=".view.activity.MigrationActivity" />

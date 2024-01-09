@@ -2,23 +2,20 @@ package org.grapheneos.setupwizard.action
 
 import android.app.Activity
 import android.app.StatusBarManager
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.annotation.StyleRes
 import com.google.android.setupcompat.partnerconfig.PartnerConfigHelper
 import com.google.android.setupcompat.util.WizardManagerHelper
-import com.google.android.setupdesign.util.PartnerStyleHelper
 import com.google.android.setupdesign.util.ThemeHelper
 import org.grapheneos.setupwizard.appContext
 import org.grapheneos.setupwizard.view.activity.DateTimeActivity
-import org.grapheneos.setupwizard.view.activity.MigrationActivity
 import org.grapheneos.setupwizard.view.activity.FinishActivity
 import org.grapheneos.setupwizard.view.activity.LocationActivity
+import org.grapheneos.setupwizard.view.activity.MigrationActivity
 import org.grapheneos.setupwizard.view.activity.SecurityActivity
 import org.grapheneos.setupwizard.view.activity.WelcomeActivity
-import java.lang.IllegalArgumentException
+import org.grapheneos.setupwizard.view.activity.WifiActivity
 
 object SetupWizard {
 
@@ -28,6 +25,7 @@ object SetupWizard {
     private val activities = listOf<Class<out Activity>>(
         WelcomeActivity::class.java,
         DateTimeActivity::class.java,
+        WifiActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,
         MigrationActivity::class.java,
@@ -65,7 +63,7 @@ object SetupWizard {
      * Commons stuffs for launching an activity.
      */
     private fun prepareIntent(context: Context, intent: Intent) {
-        intent.putExtra(WizardManagerHelper.EXTRA_IS_FIRST_RUN, true)
+        intent.putExtra(WizardManagerHelper.EXTRA_IS_FIRST_RUN, true) // not needed on >= Q
         intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true)
         intent.putExtra(WizardManagerHelper.EXTRA_THEME, getDefaultThemeName())
     }
