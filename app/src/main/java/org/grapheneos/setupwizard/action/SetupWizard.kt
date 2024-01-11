@@ -7,6 +7,7 @@ import android.content.Intent
 import androidx.annotation.StyleRes
 import com.google.android.setupcompat.partnerconfig.PartnerConfigHelper
 import com.google.android.setupcompat.util.WizardManagerHelper
+import com.google.android.setupdesign.R
 import com.google.android.setupdesign.util.ThemeHelper
 import org.grapheneos.setupwizard.appContext
 import org.grapheneos.setupwizard.view.activity.DateTimeActivity
@@ -38,6 +39,7 @@ object SetupWizard {
         if (index == -1) throw IllegalArgumentException("unknown current step")
         if (index + 1 == activities.size) throw IllegalArgumentException("no more steps")
         val intent = Intent(current, activities[index + 1])
+        current.overridePendingTransition(R.anim.sud_slide_next_in, R.anim.sud_slide_next_out)
         current.startActivity(intent)
     }
 

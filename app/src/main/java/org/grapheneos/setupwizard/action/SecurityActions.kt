@@ -3,7 +3,6 @@ package org.grapheneos.setupwizard.action
 import android.app.Activity
 import android.app.KeyguardManager
 import android.content.Intent
-import android.hardware.biometrics.BiometricManager
 import org.grapheneos.setupwizard.appContext
 import org.grapheneos.setupwizard.data.SecurityData
 
