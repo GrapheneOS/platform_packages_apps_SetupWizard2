@@ -32,4 +32,5 @@
     <string name="time">Time</string>
     <string name="time_zone">Time zone</string>
     <string name="select_time_zone">Select time zone</string>
+    <string name="select_a_network">Select a network</string>
 </resources>

@@ -13,7 +13,6 @@ import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.util.ThemeHelper
 import org.grapheneos.setupwizard.R
 
-
 /**
  * This is the base activity for all setup wizard activities.
  */

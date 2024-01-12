@@ -1,4 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SetupWizard" parent="SudThemeGlifV4.DayNight" />
+    <style name="Theme.SetupWizard" parent="SudThemeGlifV4.DayNight">
+        <item name="sudUseBottomProgressBar">true</item>
+    </style>
 </resources>
