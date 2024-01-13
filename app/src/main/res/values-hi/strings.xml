@@ -15,12 +15,12 @@
     <string name="choose_your_language">अपनी भाषा चुनें</string>
     <string name="location_services">स्थान सेवाएं</string>
     <string name="location_access_desc">उन ऐप्स को अनुमति दें जिन्होंने आपकी स्थान जानकारी का उपयोग करने के लिए आपसे अनुमति मांगी है। इसमें आपका वर्तमान स्थान और पिछले स्थान शामिल हो सकते हैं।</string>
-    <string name="restore_apps_and_data">ऐप्स और डेटा पुनर्स्थापित करें></string>
+    <string name="restore_apps_and_data">ऐप्स और डेटा पुनर्स्थापित करें</string>
     <string name="data_restore_desc">यदि आपके पास अपने पिछले ग्राफीनओएस फोन का बैकअप है, तो आप इसे यहां पुनर्स्थापित कर सकते हैं।</string>
     <string name="you_re_all_set_now">अब आप पूरी तरह तैयार हैं!</string>
     <string name="setup_done_desc">आप अपने फ़ोन का उपयोग शुरू करने के लिए तैयार हैं</string>
     <string name="set_up_biometric_unlock">बायोमेट्रिक अनलॉक सेटअप करें</string>
-    <string name="biometric_unlock_desc">अपने फ़ोन को अनलॉक करने के लिए बायोमेट्रिक सेंसर का उपयोग करने के लिए, आपको इसकी आवश्यकता होगी</string>
+    <string name="biometric_unlock_desc">अपने फ़ोन को अनलॉक करने के लिए बायोमेट्रिक सेंसर का उपयोग करने के लिए, आपको इन चरणों का पालन करना होगा</string>
     <string name="set_up_a_secondary_unlock_method">एक द्वितीयक अनलॉक विधि सेटअप करें</string>
     <string name="set_up_fingerprint_unlock">फ़िंगरप्रिंट अनलॉक सेटअप करें</string>
     <string name="optionally_set_up_face_unlock">वैकल्पिक रूप से फेस अनलॉक सेटअप करें</string>
@@ -34,4 +34,5 @@
     <string name="select_time_zone">समय क्षेत्र चुनें</string>
     <string name="select_a_network">एक नेटवर्क चुनें</string>
     <string name="cancel">रद्द करें</string>
+    <string name="restore">पुनर्स्थापित करें</string>
 </resources>

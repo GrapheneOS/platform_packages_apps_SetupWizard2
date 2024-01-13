@@ -28,13 +28,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/time_zone"
-                android:textAppearance="@style/TextAppearance.SudMaterialYouItemTitle" />
+                android:textAppearance="@style/TextAppearance.SudGlifItemTitle" />
 
             <TextView
                 android:id="@+id/timezone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
+                android:textAppearance="@style/TextAppearance.SudGlifItemSummary" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,13 +52,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/date"
-                android:textAppearance="@style/TextAppearance.SudMaterialYouItemTitle" />
+                android:textAppearance="@style/TextAppearance.SudGlifItemTitle" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
+                android:textAppearance="@style/TextAppearance.SudGlifItemSummary" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,13 +76,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/time"
-                android:textAppearance="@style/TextAppearance.SudMaterialYouItemTitle" />
+                android:textAppearance="@style/TextAppearance.SudGlifItemTitle" />
 
             <TextView
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
+                android:textAppearance="@style/TextAppearance.SudGlifItemSummary" />
         </LinearLayout>
     </LinearLayout>
 

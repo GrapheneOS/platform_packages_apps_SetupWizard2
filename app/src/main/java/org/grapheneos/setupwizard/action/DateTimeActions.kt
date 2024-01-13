@@ -50,7 +50,7 @@ object DateTimeActions {
                 Log.d(TAG, "showTimeZonePicker: ${zones[which]}")
                 setTimeZone(zones[which].id)
             }
-            .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss()}
+            .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
             .create().show()
     }
 

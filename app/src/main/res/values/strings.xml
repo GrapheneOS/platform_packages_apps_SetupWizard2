@@ -8,7 +8,7 @@
     <string name="lets_setup_your_phone">Let\'s set up your phone in a few steps.</string>
     <string name="english_united_states">English (United States)</string>
     <string name="accessibility">Accessibility</string>
-    <string name="emergency_call">Emergency Call</string>
+    <string name="emergency_call">Emergency call</string>
     <string name="connect_to_wi_fi">Connect to Wi-Fi</string>
     <string name="set_up_without_wi_fi">Set up without Wi-Fi</string>
     <string name="connect">Connect</string>
@@ -20,7 +20,7 @@
     <string name="you_re_all_set_now">You\'re all set now!</string>
     <string name="setup_done_desc">You\'re ready to start using your phone</string>
     <string name="set_up_biometric_unlock">Set up Biometric Unlock</string>
-    <string name="biometric_unlock_desc">To use biometric sensors to unlock your phone, you\'ll need to</string>
+    <string name="biometric_unlock_desc">To use biometric sensors to unlock your phone, you\'ll need to follow these steps</string>
     <string name="set_up_a_secondary_unlock_method">Set up a secondary unlock method</string>
     <string name="set_up_fingerprint_unlock">Set up fingerprint unlock</string>
     <string name="optionally_set_up_face_unlock">Optionally set up face unlock</string>
@@ -34,4 +34,5 @@
     <string name="select_time_zone">Select time zone</string>
     <string name="select_a_network">Select a network</string>
     <string name="cancel">Cancel</string>
+    <string name="restore">Restore</string>
 </resources>

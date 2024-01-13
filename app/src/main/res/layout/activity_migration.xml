@@ -30,6 +30,6 @@
             style="@style/SudGlifButton.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next" />
+            android:text="@string/restore" />
     </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>
