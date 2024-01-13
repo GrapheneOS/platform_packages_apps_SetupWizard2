@@ -32,7 +32,9 @@ object WelcomeActions {
                 updateLocale(
                     adapter.getItem(which)
                 )
-            }.create().show()
+            }
+            .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
+            .create().show()
     }
 
     private fun updateLocale(locale: LocalePicker.LocaleInfo) {

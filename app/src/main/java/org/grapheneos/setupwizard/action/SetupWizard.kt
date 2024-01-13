@@ -25,8 +25,8 @@ object SetupWizard {
     // which means the launching of next activity will be a pure function
     private val activities = listOf<Class<out Activity>>(
         WelcomeActivity::class.java,
-        DateTimeActivity::class.java,
         WifiActivity::class.java,
+        DateTimeActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,
         MigrationActivity::class.java,

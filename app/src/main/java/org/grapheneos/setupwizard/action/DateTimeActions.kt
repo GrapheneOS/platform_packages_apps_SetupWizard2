@@ -8,6 +8,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.IntentFilter
 import android.icu.text.TimeZoneNames
@@ -48,7 +49,9 @@ object DateTimeActions {
             .setAdapter(ZoneGetter.getAdapter(context, zones)) { _, which ->
                 Log.d(TAG, "showTimeZonePicker: ${zones[which]}")
                 setTimeZone(zones[which].id)
-            }.create().show()
+            }
+            .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss()}
+            .create().show()
     }
 
     fun showDatePicker(context: Activity) {

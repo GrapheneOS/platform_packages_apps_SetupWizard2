@@ -33,4 +33,5 @@
     <string name="time_zone">समय क्षेत्र</string>
     <string name="select_time_zone">समय क्षेत्र चुनें</string>
     <string name="select_a_network">एक नेटवर्क चुनें</string>
+    <string name="cancel">रद्द करें</string>
 </resources>
