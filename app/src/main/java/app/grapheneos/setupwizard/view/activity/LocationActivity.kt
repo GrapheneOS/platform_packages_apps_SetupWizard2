@@ -1,0 +1,28 @@
+package app.grapheneos.setupwizard.view.activity
+
+import android.view.View
+import android.widget.CheckBox
+import app.grapheneos.setupwizard.R
+import app.grapheneos.setupwizard.action.LocationActions
+import app.grapheneos.setupwizard.action.SetupWizard
+import app.grapheneos.setupwizard.data.LocationData
+
+class LocationActivity : SetupWizardActivity(
+    R.layout.activity_location,
+    R.drawable.baseline_location_on_glif,
+    R.string.location_services
+) {
+    private lateinit var enabled: CheckBox
+    private lateinit var next: View
+
+    override fun bindViews() {
+        enabled = findViewById(R.id.enabled)
+        next = findViewById(R.id.next)
+        LocationData.enabled.observe(this) { enabled.isChecked = it }
+    }
+
+    override fun setupActions() {
+        enabled.setOnClickListener { LocationActions.setEnabled(enabled.isChecked) }
+        next.setOnClickListener { SetupWizard.next(this) }
+    }
+}

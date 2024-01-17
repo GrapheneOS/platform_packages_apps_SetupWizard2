@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SetupWizard">
         <activity
-            android:name="org.grapheneos.setupwizard.view.activity.WelcomeActivity"
+            android:name="app.grapheneos.setupwizard.view.activity.WelcomeActivity"
             android:exported="true">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.MAIN" />

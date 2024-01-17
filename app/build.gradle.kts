@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "org.grapheneos.setupwizard"
+    namespace = "app.grapheneos.setupwizard"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "org.grapheneos.setupwizard"
+        applicationId = "app.grapheneos.setupwizard"
         minSdk = 34
         targetSdk = 34
         versionCode = 1
