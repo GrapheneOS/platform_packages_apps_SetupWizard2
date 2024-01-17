@@ -15,7 +15,7 @@ object LocationActions {
 
     fun setEnabled(enabled: Boolean) {
         Log.d(TAG, "setEnabled: $enabled")
-        getLocationManager().setLocationEnabledForUser(enabled, UserHandle.CURRENT)
+        getLocationManager().setLocationEnabledForUser(enabled, appContext.user)
         refreshCurrentState()
     }
 
