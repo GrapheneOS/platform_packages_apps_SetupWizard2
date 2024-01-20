@@ -50,12 +50,9 @@ android {
 }
 
 dependencies {
-//     implementation(files("libs/setupcompat.aar"))
     implementation(project(":setupcompat"))
-//     implementation(files("libs/setupdesign.aar"))
     implementation(project(":setupdesign"))
-//    implementation(files("libs/strings.aar"))
-    compileOnly(files("libs/framework.jar"))
+    compileOnly("me.jitesh.android.platform:framework:34")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
