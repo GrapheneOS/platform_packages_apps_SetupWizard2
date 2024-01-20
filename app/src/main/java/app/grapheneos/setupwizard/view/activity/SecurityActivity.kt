@@ -1,39 +1,42 @@
 package app.grapheneos.setupwizard.view.activity
 
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
-import android.view.View
-import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.SecurityActions
 import app.grapheneos.setupwizard.action.SetupWizard
+import app.grapheneos.setupwizard.data.SecurityData
 
-class SecurityActivity : SetupWizardActivity(
-    R.layout.activity_security,
-    R.drawable.baseline_fingerprint_glif,
-    R.string.set_up_biometric_unlock,
-    R.string.biometric_unlock_desc
-) {
-    private lateinit var skip: View
-    private lateinit var setup: View
+class SecurityActivity : ProxyActivity() {
 
     companion object {
         private const val TAG = "SecurityActivity"
     }
 
-    override fun bindViews() {
-        skip = findViewById(R.id.skip)
-        setup = findViewById(R.id.setup)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (isDeviceSecure() == true) {
+            Log.d(TAG, "onCreate: skipping, device already secure")
+            finish()
+            SetupWizard.next(this)
+        }
     }
 
-    override fun setupActions() {
-        skip.setOnClickListener { SetupWizard.next(this) }
-        setup.setOnClickListener { SecurityActions.launchSetup(this) }
+    override fun launchActual(): Int {
+        return SecurityActions.launchSetup(this)
     }
 
-    @Deprecated("Deprecated in Java") // TODO: use the new interface
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.d(TAG, "onActivityResult: $resultCode, data=$data")
-        SecurityActions.handleResult(this, requestCode, resultCode)
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun isDeviceSecure(): Boolean? {
+        return SecurityData.isDeviceSecure.value
+    }
+
+    override fun handleResult(resultCode: Int, data: Intent?) {
+        Log.d(TAG, "handleResult: $resultCode")
+        SecurityActions.refreshSecurityStatus()
+        if (isDeviceSecure() == true)
+            finish()
+        else
+            setMovingForward()
+        SecurityActions.handleResult(this, resultCode)
     }
 }

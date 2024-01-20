@@ -3,6 +3,7 @@ package app.grapheneos.setupwizard.action
 import android.app.Activity
 import android.app.KeyguardManager
 import android.content.Intent
+import android.util.Log
 import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.SecurityData
 
@@ -16,24 +17,20 @@ object SecurityActions {
         refreshSecurityStatus()
     }
 
-    fun launchSetup(context: Activity) {
+    fun launchSetup(context: Activity): Int {
         val intent = Intent(ACTION_SETUP_BIOMETRIC)
-        intent.putExtra("title", "Titan")
-        intent.putExtra("details", "Delta Force")
         SetupWizard.startActivityForResult(context, intent, REQUEST_CODE)
+        return REQUEST_CODE
     }
 
-    fun handleResult(context: Activity, requestCode: Int, resultCode: Int) {
-        if (requestCode != REQUEST_CODE) {
-            return
-        }
+    fun handleResult(context: Activity, resultCode: Int) {
         if (resultCode != Activity.RESULT_CANCELED) {
             SetupWizard.next(context)
         }
         refreshSecurityStatus()
     }
 
-    private fun refreshSecurityStatus() {
+    fun refreshSecurityStatus() {
         SecurityData.isDeviceSecure.value = getKeyguardManager().isDeviceSecure
     }
 

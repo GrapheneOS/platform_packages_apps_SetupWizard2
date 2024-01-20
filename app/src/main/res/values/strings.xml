@@ -19,8 +19,6 @@
     <string name="data_restore_desc">If you have a backup from you last GrapheneOS phone, you can restore it here.</string>
     <string name="you_re_all_set_now">You\'re all set now!</string>
     <string name="setup_done_desc">You\'re ready to start using your phone</string>
-    <string name="set_up_biometric_unlock">Set up Biometric Unlock</string>
-    <string name="biometric_unlock_desc">To use biometric sensors to unlock your phone, you\'ll need to follow these steps</string>
     <string name="set_up_a_secondary_unlock_method">Set up a secondary unlock method</string>
     <string name="set_up_fingerprint_unlock">Set up fingerprint unlock</string>
     <string name="optionally_set_up_face_unlock">Optionally set up face unlock</string>

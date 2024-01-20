@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModel
 import app.grapheneos.setupwizard.action.SecurityActions
 
 object SecurityData : ViewModel() {
+
+    val isDeviceSecure = MutableLiveData<Boolean>()
+
     init {
         SecurityActions
     }
-
-    val isDeviceSecure = MutableLiveData<Boolean>()
 }

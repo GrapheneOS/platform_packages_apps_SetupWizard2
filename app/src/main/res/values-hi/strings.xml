@@ -19,8 +19,6 @@
     <string name="data_restore_desc">यदि आपके पास अपने पिछले ग्राफीनओएस फोन का बैकअप है, तो आप इसे यहां पुनर्स्थापित कर सकते हैं।</string>
     <string name="you_re_all_set_now">अब आप पूरी तरह तैयार हैं!</string>
     <string name="setup_done_desc">आप अपने फ़ोन का उपयोग शुरू करने के लिए तैयार हैं</string>
-    <string name="set_up_biometric_unlock">बायोमेट्रिक अनलॉक सेटअप करें</string>
-    <string name="biometric_unlock_desc">अपने फ़ोन को अनलॉक करने के लिए बायोमेट्रिक सेंसर का उपयोग करने के लिए, आपको इन चरणों का पालन करना होगा</string>
     <string name="set_up_a_secondary_unlock_method">एक द्वितीयक अनलॉक विधि सेटअप करें</string>
     <string name="set_up_fingerprint_unlock">फ़िंगरप्रिंट अनलॉक सेटअप करें</string>
     <string name="optionally_set_up_face_unlock">वैकल्पिक रूप से फेस अनलॉक सेटअप करें</string>
