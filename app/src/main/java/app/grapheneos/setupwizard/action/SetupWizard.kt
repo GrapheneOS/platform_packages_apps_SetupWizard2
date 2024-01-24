@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.StatusBarManager
 import android.content.Context
 import android.content.Intent
+import android.os.UserManager
 import androidx.annotation.StyleRes
 import com.google.android.setupcompat.partnerconfig.PartnerConfigHelper
 import com.google.android.setupcompat.util.WizardManagerHelper
@@ -23,7 +24,7 @@ object SetupWizard {
     // it is assumed that activities are unrelated from each other
     // which means current activity has no info to pass to next activity
     // which means the launching of next activity will be a pure function
-    private val activities = listOf<Class<out Activity>>(
+    private val primaryUserActivities = listOf<Class<out Activity>>(
         WelcomeActivity::class.java,
         WifiActivity::class.java,
         DateTimeActivity::class.java,
@@ -32,9 +33,17 @@ object SetupWizard {
         MigrationActivity::class.java,
         FinishActivity::class.java
     )
+    private val secondaryUserActivities = listOf<Class<out Activity>>(
+        WelcomeActivity::class.java,
+        LocationActivity::class.java,
+        SecurityActivity::class.java,
+        MigrationActivity::class.java,
+        FinishActivity::class.java
+    )
 
     // launch next step
     fun next(current: Activity) {
+        val activities = if (isPrimaryUser) primaryUserActivities else secondaryUserActivities
         val index = activities.indexOf(current.javaClass)
         if (index == -1) throw IllegalArgumentException("unknown current step")
         if (index + 1 == activities.size) throw IllegalArgumentException("no more steps")
@@ -77,5 +86,9 @@ object SetupWizard {
 
     private fun getDefaultThemeName(): String? {
         return PartnerConfigHelper.getSuwDefaultThemeString(appContext)
+    }
+
+    val isPrimaryUser: Boolean by lazy {
+        appContext.getSystemService(UserManager::class.java).isSystemUser
     }
 }

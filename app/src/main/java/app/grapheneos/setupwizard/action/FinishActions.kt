@@ -17,10 +17,13 @@ object FinishActions {
     fun finish(context: Activity) {
         Log.d(TAG, "finish")
         // mark completion
-        Settings.Global.putInt(
-            context.contentResolver,
-            Settings.Global.DEVICE_PROVISIONED, 1
-        )
+        if (SetupWizard.isPrimaryUser) {
+            // not needed in case of secondary user
+            Settings.Global.putInt(
+                context.contentResolver,
+                Settings.Global.DEVICE_PROVISIONED, 1
+            )
+        }
         Settings.Secure.putInt(
             context.contentResolver,
             Settings.Secure.USER_SETUP_COMPLETE, 1
