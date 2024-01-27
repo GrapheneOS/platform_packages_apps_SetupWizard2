@@ -8,37 +8,35 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="?attr/sudContentIllustrationMaxWidth"
-            android:layout_height="?attr/sudContentIllustrationMaxHeight"
-            android:layout_marginBottom="50dp"
-            android:contentDescription="@string/grapheneos_icon"
-            android:paddingTop="?attr/sudContentIllustrationPaddingTop"
-            android:paddingBottom="?attr/sudContentIllustrationPaddingBottom"
-            android:src="@drawable/grapheneos_icon" />
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/SudGlifButtonBar.Stackable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <Space
-            android:layout_width="0dp"
+            style="@style/SudContentFrame"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:contentDescription="@string/grapheneos_icon"
+            android:src="@drawable/grapheneos_icon" />
 
-        <Button
-            android:id="@+id/finish"
-            style="@style/SudGlifButton.Primary"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            style="@style/SudGlifButtonBar.Stackable"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/start" />
+            android:layout_gravity="bottom">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/finish"
+                style="@style/SudGlifButton.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start" />
+        </LinearLayout>
     </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>
