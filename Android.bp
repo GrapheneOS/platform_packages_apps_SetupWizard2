@@ -1,0 +1,33 @@
+android_app {
+    name: "SetupWizard",
+    srcs: ["app/src/main/java/**/*.kt"],
+    resource_dirs: ["app/src/main/res"],
+    manifest: "app/src/main/AndroidManifest.xml",
+
+    certificate: "platform",
+    privileged: true,
+    system_ext_specific: true,
+    platform_apis: true,
+
+    overrides: ["Provision"],
+
+    optimize: {
+        proguard_flags_files: ["app/proguard-rules.pro"],
+    },
+
+    static_libs: [
+        "androidx.core_core",
+        "setupcompat",
+        "setupdesign",
+    ],
+
+    required: ["privapp_whitelist_app.grapheneos.setupwizard"],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_app.grapheneos.setupwizard",
+    system_ext_specific: true,
+    src: "privapp_whitelist_app.grapheneos.setupwizard.xml",
+    sub_dir: "permissions",
+    filename_from_src: true,
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<permissions>
+    <privapp-permissions package="app.grapheneos.setupwizard">
+        <permission name="android.permission.CHANGE_CONFIGURATION"/>
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.SET_TIME"/>
+        <permission name="android.permission.SET_TIME_ZONE"/>
+        <permission name="android.permission.STATUS_BAR"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.WRITE_SETTINGS"/>
+        <permission name="com.stevesoltys.seedvault.RESTORE_BACKUP"/>
+    </privapp-permissions>
+</permissions>
