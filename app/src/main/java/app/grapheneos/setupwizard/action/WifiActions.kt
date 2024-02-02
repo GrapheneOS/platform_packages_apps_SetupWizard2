@@ -3,11 +3,13 @@ package app.grapheneos.setupwizard.action
 import android.app.Activity
 import android.content.Intent
 import app.grapheneos.setupwizard.R
+import app.grapheneos.setupwizard.USE_LEGACY_WIFI_SETUP
 
 object WifiActions {
     private const val TAG = "WifiActions"
 
     private const val ACTION_SETUP_INTERNET = "android.settings.SETUP_INTERNET"
+    private const val ACTION_SETUP_INTERNET_LEGACY = "android.settings.NETWORK_PROVIDER_SETTINGS"
     private const val EXTRA_SHOW_BUTTONS = "extra_prefs_show_button_bar"
     private const val EXTRA_SHOW_SKIP = "extra_prefs_show_skip"
     private const val EXTRA_BACK_TEXT = "extra_prefs_set_back_text"
@@ -22,7 +24,9 @@ object WifiActions {
     }
 
     fun launchSetup(context: Activity): Int {
-        val intent = Intent(ACTION_SETUP_INTERNET)
+        val intent = Intent(
+            if (USE_LEGACY_WIFI_SETUP) ACTION_SETUP_INTERNET_LEGACY else ACTION_SETUP_INTERNET
+        )
         intent.putExtra(EXTRA_SETUP_WIZARD_TITLE, context.getString(R.string.connect_to_wi_fi))
         intent.putExtra(EXTRA_SETUP_WIZARD_DESC, context.getString(R.string.select_a_network))
         intent.putExtra(EXTRA_SHOW_BUTTONS, true)
