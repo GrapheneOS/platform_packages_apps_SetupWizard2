@@ -5,7 +5,7 @@
     <string name="welcome_to_grapheneos">Welcome to GrapheneOS</string>
     <string name="grapheneos_icon">GrapheneOS icon</string>
     <string name="grapheneos_desc">Privacy and security, crafted for your mobile device, usable by everyone.</string>
-    <string name="lets_setup_your_phone">Let\'s set up your phone in a few steps.</string>
+    <string name="lets_setup_your_device">Let\'s set up your device in a few steps.</string>
     <string name="english_united_states">English (United States)</string>
     <string name="accessibility">Accessibility</string>
     <string name="emergency_call">Emergency call</string>
@@ -16,9 +16,9 @@
     <string name="location_services">Location services</string>
     <string name="location_access_desc">Allow apps that have asked your permission to use your location information. This may include your current location and past locations.</string>
     <string name="restore_apps_and_data"><![CDATA[Restore apps & data]]></string>
-    <string name="data_restore_desc">If you have a backup from you last GrapheneOS phone, you can restore it here.</string>
+    <string name="data_restore_desc">If you have a backup from you last GrapheneOS device, you can restore it here.</string>
     <string name="you_re_all_set_now">You\'re all set now!</string>
-    <string name="setup_done_desc">You\'re ready to start using your phone</string>
+    <string name="setup_done_desc">You\'re ready to start using your device</string>
     <string name="set_up_a_secondary_unlock_method">Set up a secondary unlock method</string>
     <string name="set_up_fingerprint_unlock">Set up fingerprint unlock</string>
     <string name="optionally_set_up_face_unlock">Optionally set up face unlock</string>

@@ -4,8 +4,8 @@
     <string name="skip">छोड्नुहोस्</string>
     <string name="welcome_to_grapheneos">ग्राफीनओएस मा स्वागत छ</string>
     <string name="grapheneos_icon">ग्राफीनओएस आइकन</string>
-    <string name="grapheneos_desc">गोपनीयता र सुरक्षा, तपाईंको मोबाइल उपकरणको लागि बनाइएको, सबैले प्रयोग गर्न सक्ने।</string>
-    <string name="lets_setup_your_phone">केही चरणहरूमा तपाईंको फोन सेटअप गरौं।</string>
+    <string name="grapheneos_desc">गोपनीयता र सुरक्षा, तपाईंको मोबाइल डिवाइस को लागि बनाइएको, सबैले प्रयोग गर्न सक्ने।</string>
+    <string name="lets_setup_your_device">केही चरणहरूमा तपाईंको डिवाइस सेटअप गरौं।</string>
     <string name="english_united_states">अंग्रेजी (संयुक्त राज्य अमेरिका)</string>
     <string name="accessibility">पहुँच सेटिङहरू</string>
     <string name="emergency_call">आपतकालीन कल</string>
@@ -16,9 +16,9 @@
     <string name="location_services">स्थान सेवाहरू</string>
     <string name="location_access_desc">तपाईंको स्थान जानकारी प्रयोग गर्न अनुमति माग्ने एपहरूलाई अनुमति दिनुहोस्। यसले तपाईंको हालको स्थान र विगतका स्थानहरू समावेश गर्न सक्छ।</string>
     <string name="restore_apps_and_data">एप्स र डेटा रिस्टोर गर्नुहोस्</string>
-    <string name="data_restore_desc">यदि तपाइँसँग तपाइँको पछिल्लो ग्राफीनओएस फोनबाट ब्याकअप छ भने, तपाइँ यसलाई यहाँ पुनर्स्थापना गर्न सक्नुहुन्छ।</string>
+    <string name="data_restore_desc">यदि तपाइँसँग तपाइँको पछिल्लो ग्राफीनओएस डिवाइस बाट ब्याकअप छ भने, तपाइँ यसलाई यहाँ पुनर्स्थापना गर्न सक्नुहुन्छ।</string>
     <string name="you_re_all_set_now">तपाईं अब पूर्ण रूपमा तयार हुनुहुन्छ!</string>
-    <string name="setup_done_desc">तपाईं आफ्नो फोन प्रयोग गर्न सुरु गर्न तयार हुनुहुन्छ</string>
+    <string name="setup_done_desc">तपाईं आफ्नो डिवाइस प्रयोग गर्न सुरु गर्न तयार हुनुहुन्छ</string>
     <string name="set_up_a_secondary_unlock_method">माध्यमिक अनलक विधि सेटअप गर्नुहोस्</string>
     <string name="set_up_fingerprint_unlock">फिंगरप्रिन्ट अनलक सेटअप गर्नुहोस्</string>
     <string name="optionally_set_up_face_unlock">वैकल्पिक रूपमा फेस अनलक सेटअप गर्नुहोस्</string>
