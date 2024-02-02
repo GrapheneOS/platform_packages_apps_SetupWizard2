@@ -53,7 +53,8 @@
             android:drawablePadding="@dimen/button_drawable_padding"
             android:gravity="center_vertical"
             android:text="@string/english_united_states"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/welcome_content_actions_text_size" />
 
         <Button
             android:id="@+id/accessibility"
@@ -64,7 +65,8 @@
             android:drawablePadding="@dimen/button_drawable_padding"
             android:gravity="center_vertical"
             android:text="@string/accessibility"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/welcome_content_actions_text_size" />
     </LinearLayout>
 
     <LinearLayout

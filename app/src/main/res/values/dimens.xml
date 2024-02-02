@@ -5,6 +5,7 @@
     <dimen name="welcome_content_container_padding_bottom">0dp</dimen>
     <dimen name="welcome_content_container_padding_end">24dp</dimen>
     <dimen name="welcome_content_container_padding_start">40dp</dimen>
+    <dimen name="welcome_content_actions_text_size">18sp</dimen>
     <dimen name="sud_progress_bar_margin_top">
         @dimen/sud_progress_bar_margin_top_material_you
     </dimen>
