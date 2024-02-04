@@ -22,6 +22,9 @@ class LocationActivity : SetupWizardActivity(
     }
 
     override fun setupActions() {
+        findViewById<View>(R.id.enabled_container).setOnClickListener {
+            LocationActions.setEnabled(!enabled.isChecked)
+        }
         enabled.setOnClickListener { LocationActions.setEnabled(enabled.isChecked) }
         next.setOnClickListener { SetupWizard.next(this) }
     }

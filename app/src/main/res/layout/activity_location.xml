@@ -8,10 +8,13 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/enabled_container"
         style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
