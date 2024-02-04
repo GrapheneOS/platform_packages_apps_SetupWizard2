@@ -9,29 +9,19 @@ import androidx.annotation.MainThread
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updatePadding
+import app.grapheneos.setupwizard.R
 import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.util.ThemeHelper
-import app.grapheneos.setupwizard.R
 
 /**
  * This is the base activity for all setup wizard activities.
  */
 abstract class SetupWizardActivity(
-    @LayoutRes val layoutResID: Int?,
-    @DrawableRes val icon: Int?,
-    @StringRes val header: Int?,
-    @StringRes val description: Int?
+    @LayoutRes val layoutResID: Int? = null,
+    @DrawableRes val icon: Int? = null,
+    @StringRes val header: Int? = null,
+    @StringRes val description: Int? = null,
 ) : AppCompatActivity() {
-
-    constructor() : this(null, null, null, null)
-    constructor(@LayoutRes layoutResID: Int)
-            : this(layoutResID, null, null, null)
-
-    constructor(@LayoutRes layoutResID: Int, @DrawableRes icon: Int) :
-            this(layoutResID, icon, null, null)
-
-    constructor(@LayoutRes layoutResID: Int, @DrawableRes icon: Int, @StringRes header: Int) :
-            this(layoutResID, icon, header, null)
 
     private var glifLayout: GlifLayout? = null
 
