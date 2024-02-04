@@ -94,7 +94,6 @@ object DateTimeActions {
     }
 
     private fun setMillis(millis: Long) {
-        if (millis / 1000 >= Int.MAX_VALUE) return // unix time overflow
         getAlarmManager().setTime(millis)
         refreshCurrentState()
     }
