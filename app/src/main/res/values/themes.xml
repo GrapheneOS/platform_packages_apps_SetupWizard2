@@ -1,6 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.SetupWizard" parent="SudThemeGlifV4.DayNight">
         <item name="sudUseBottomProgressBar">true</item>
+    </style>
+
+    <style name="SudContentIllustrationExtended" parent="SudContentIllustration">
+        <item name="android:maxWidth">@dimen/sud_content_illustration_max_width</item>
+        <item name="android:maxHeight">@dimen/sud_content_illustration_max_height</item>
+        <item name="android:minWidth">@dimen/sud_content_illustration_min_width</item>
+        <item name="android:minHeight">@dimen/sud_content_illustration_min_height</item>
+        <item name="android:layout_marginBottom">50dp</item>
     </style>
 </resources>

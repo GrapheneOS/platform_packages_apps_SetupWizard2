@@ -35,6 +35,7 @@
         <activity android:name=".view.activity.LocationActivity" />
         <activity android:name=".view.activity.SecurityActivity" />
         <activity android:name=".view.activity.MigrationActivity" />
+        <activity android:name=".view.activity.GesturesActivity" />
         <activity android:name=".view.activity.FinishActivity" />
 
         <provider

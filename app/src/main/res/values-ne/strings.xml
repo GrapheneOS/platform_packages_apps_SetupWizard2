@@ -33,4 +33,7 @@
     <string name="select_a_network">नेटवर्क चयन गर्नुहोस्</string>
     <string name="cancel">रद्द गर्नुहोस्</string>
     <string name="restore">पुनर्स्थापना गर्नुहोस्</string>
+    <string name="swipe_gestures_title">आफ्नो फोन नेभिगेट गर्न स्वाइप गर्नुहोस्</string>
+    <string name="swipe_gestures_desc">घर जान इशाराहरू सिक्नुहोस्, पछाडि जानुहोस् र एपहरू बीच स्विच गर्नुहोस्</string>
+    <string name="try_it">काेशिस गर</string>
 </resources>

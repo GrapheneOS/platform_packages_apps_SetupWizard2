@@ -33,4 +33,7 @@
     <string name="select_a_network">Select a network</string>
     <string name="cancel">Cancel</string>
     <string name="restore">Restore</string>
+    <string name="swipe_gestures_title">Swipe to navigate your phone</string>
+    <string name="swipe_gestures_desc">Learn gestures to go home, go back and switch between apps</string>
+    <string name="try_it">Try it</string>
 </resources>
