@@ -8,8 +8,8 @@ class WifiActivity : ProxyActivity() {
         private const val TAG = "WifiActivity"
     }
 
-    override fun launchActual(): Int {
-        return WifiActions.launchSetup(this)
+    override fun launchActual() {
+        WifiActions.launchSetup(this)
     }
 
     override fun handleResult(resultCode: Int, data: Intent?) {

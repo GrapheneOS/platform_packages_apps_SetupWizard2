@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.USE_LEGACY_WIFI_SETUP
+import app.grapheneos.setupwizard.view.activity.SetupWizardActivity
 
 object WifiActions {
     private const val TAG = "WifiActions"
@@ -18,12 +19,11 @@ object WifiActions {
     private const val EXTRA_MODE_WIFI = "setup_wizard_mode_wifi"
     private const val EXTRA_SETUP_WIZARD_TITLE = "setup_wizard_title";
     private const val EXTRA_SETUP_WIZARD_DESC = "setup_wizard_description";
-    private const val REQUEST_CODE = 301
 
     init {
     }
 
-    fun launchSetup(context: Activity): Int {
+    fun launchSetup(context: SetupWizardActivity) {
         val intent = Intent(
             if (USE_LEGACY_WIFI_SETUP) ACTION_SETUP_INTERNET_LEGACY else ACTION_SETUP_INTERNET
         )
@@ -35,8 +35,7 @@ object WifiActions {
         intent.putExtra(EXTRA_BACK_TEXT, null as String?) // hides back button
         intent.putExtra(EXTRA_ENABLE_NEXT_ON_CONNECT, true)
         intent.putExtra(EXTRA_MODE_WIFI, true)
-        SetupWizard.startActivityForResult(context, intent, REQUEST_CODE)
-        return REQUEST_CODE
+        SetupWizard.startActivityForResult(context, intent)
     }
 
     fun handleResult(context: Activity, resultCode: Int) {

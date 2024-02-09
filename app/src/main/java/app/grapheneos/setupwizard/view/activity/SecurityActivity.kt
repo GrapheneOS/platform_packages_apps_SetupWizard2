@@ -22,8 +22,8 @@ class SecurityActivity : ProxyActivity() {
         }
     }
 
-    override fun launchActual(): Int {
-        return SecurityActions.launchSetup(this)
+    override fun launchActual() {
+        SecurityActions.launchSetup(this)
     }
 
     private fun isDeviceSecure(): Boolean? {

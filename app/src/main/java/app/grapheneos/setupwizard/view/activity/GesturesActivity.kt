@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.GesturesActions
-import app.grapheneos.setupwizard.action.MigrationActions
 import app.grapheneos.setupwizard.action.SetupWizard
 
 class GesturesActivity : SetupWizardActivity(
@@ -31,9 +30,9 @@ class GesturesActivity : SetupWizardActivity(
         tryIt.setOnClickListener { GesturesActions.launchTutorial(this) }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(resultCode: Int, data: Intent?) {
         Log.d(TAG, "onActivityResult: $resultCode, data=$data")
-        GesturesActions.handleResult(this, requestCode, resultCode)
-        super.onActivityResult(requestCode, resultCode, data)
+        GesturesActions.handleResult(this, resultCode)
+        super.onActivityResult(resultCode, data)
     }
 }

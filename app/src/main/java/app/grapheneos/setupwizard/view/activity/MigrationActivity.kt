@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.MigrationActions
-import app.grapheneos.setupwizard.action.SecurityActions
 import app.grapheneos.setupwizard.action.SetupWizard
 
 class MigrationActivity : SetupWizardActivity(
@@ -33,7 +32,7 @@ class MigrationActivity : SetupWizardActivity(
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.d(TAG, "onActivityResult: $resultCode, data=$data")
-        MigrationActions.handleResult(this, requestCode, resultCode)
+        MigrationActions.handleResult(this, resultCode)
         super.onActivityResult(requestCode, resultCode, data)
     }
 }

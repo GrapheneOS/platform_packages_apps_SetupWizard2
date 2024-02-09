@@ -17,6 +17,7 @@ import app.grapheneos.setupwizard.view.activity.GesturesActivity
 import app.grapheneos.setupwizard.view.activity.LocationActivity
 import app.grapheneos.setupwizard.view.activity.MigrationActivity
 import app.grapheneos.setupwizard.view.activity.SecurityActivity
+import app.grapheneos.setupwizard.view.activity.SetupWizardActivity
 import app.grapheneos.setupwizard.view.activity.WelcomeActivity
 import app.grapheneos.setupwizard.view.activity.WifiActivity
 
@@ -67,9 +68,9 @@ object SetupWizard {
         context.startActivity(intent)
     }
 
-    fun startActivityForResult(context: Activity, intent: Intent, requestCode: Int) {
+    fun startActivityForResult(context: SetupWizardActivity, intent: Intent) {
         prepareIntent(context, intent)
-        context.startActivityForResult(intent, requestCode)
+        context.startActivityForResult(intent)
     }
 
     /**

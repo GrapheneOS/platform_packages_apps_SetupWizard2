@@ -9,7 +9,6 @@ abstract class ProxyActivity : SetupWizardActivity() {
         private const val TAG = "ProxyActivity"
     }
 
-    private var requestCode: Int? = null
     private var movingForward = false
 
     override fun onResume() {
@@ -18,14 +17,14 @@ abstract class ProxyActivity : SetupWizardActivity() {
             movingForward = false
             return
         }
-        requestCode = launchActual()
+        launchActual()
     }
 
     protected fun setMovingForward() {
         movingForward = true
     }
 
-    abstract fun launchActual(): Int
+    abstract fun launchActual()
 
     abstract fun handleResult(resultCode: Int, data: Intent?)
 
@@ -35,14 +34,13 @@ abstract class ProxyActivity : SetupWizardActivity() {
     override fun setupActions() {
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.d(TAG, "onActivityResult: $requestCode, $resultCode, $data")
-        if (requestCode != this.requestCode) return
+    override fun onActivityResult(resultCode: Int, data: Intent?) {
+        Log.d(TAG, "onActivityResult: $resultCode, $data")
         if (resultCode == Activity.RESULT_CANCELED) {
             finish()
             return
         }
         handleResult(resultCode, data)
-        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(resultCode, data)
     }
 }

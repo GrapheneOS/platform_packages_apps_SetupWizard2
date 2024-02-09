@@ -6,21 +6,20 @@ import android.content.Intent
 import android.util.Log
 import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.SecurityData
+import app.grapheneos.setupwizard.view.activity.SetupWizardActivity
 
 object SecurityActions {
     private const val TAG = "SecurityActions"
     private const val ACTION_SETUP_LOCK_SCREEN = "com.android.settings.SETUP_LOCK_SCREEN"
     private const val ACTION_SETUP_BIOMETRIC = "android.settings.BIOMETRIC_ENROLL"
-    private const val REQUEST_CODE = 101
 
     init {
         refreshSecurityStatus()
     }
 
-    fun launchSetup(context: Activity): Int {
+    fun launchSetup(context: SetupWizardActivity) {
         val intent = Intent(ACTION_SETUP_BIOMETRIC)
-        SetupWizard.startActivityForResult(context, intent, REQUEST_CODE)
-        return REQUEST_CODE
+        SetupWizard.startActivityForResult(context, intent)
     }
 
     fun handleResult(context: Activity, resultCode: Int) {

@@ -1,8 +1,11 @@
 package app.grapheneos.setupwizard.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.MainThread
@@ -24,9 +27,13 @@ abstract class SetupWizardActivity(
 ) : AppCompatActivity() {
 
     private var glifLayout: GlifLayout? = null
+    private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        activityResultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
+            onActivityResult(result.resultCode, result.data)
+        }
         setTheme(ThemeHelper.getSuwDefaultTheme(applicationContext))
         ThemeHelper.trySetDynamicColor(this)
         window.setFlags(
@@ -60,4 +67,10 @@ abstract class SetupWizardActivity(
 
     @MainThread
     abstract fun setupActions()
+
+    protected open fun onActivityResult(resultCode: Int, data: Intent?) {}
+
+    fun startActivityForResult(intent: Intent) {
+        activityResultLauncher.launch(intent)
+    }
 }
