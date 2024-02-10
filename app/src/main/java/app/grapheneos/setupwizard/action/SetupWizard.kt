@@ -1,6 +1,7 @@
 package app.grapheneos.setupwizard.action
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.app.StatusBarManager
 import android.content.Context
 import android.content.Intent
@@ -51,8 +52,12 @@ object SetupWizard {
         if (index == -1) throw IllegalArgumentException("unknown current step")
         if (index + 1 == activities.size) throw IllegalArgumentException("no more steps")
         val intent = Intent(current, activities[index + 1])
-        current.overridePendingTransition(R.anim.sud_slide_next_in, R.anim.sud_slide_next_out)
-        current.startActivity(intent)
+        val options = ActivityOptions.makeCustomAnimation(
+            current,
+            R.anim.sud_slide_next_in,
+            R.anim.sud_slide_next_out
+        ).toBundle()
+        current.startActivity(intent, options)
     }
 
     //////////////////////////////// common actions /////////////////////////
