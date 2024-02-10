@@ -33,10 +33,8 @@ class SecurityActivity : ProxyActivity() {
     override fun handleResult(resultCode: Int, data: Intent?) {
         Log.d(TAG, "handleResult: $resultCode")
         SecurityActions.refreshSecurityStatus()
-        if (isDeviceSecure() == true)
-            finish()
-        else
-            setMovingForward()
+        if (isDeviceSecure() == true) finish()
+        else setMovingForward()
         SecurityActions.handleResult(this, resultCode)
     }
 }

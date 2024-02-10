@@ -3,7 +3,6 @@ package app.grapheneos.setupwizard.action
 import android.app.Activity
 import android.app.KeyguardManager
 import android.content.Intent
-import android.util.Log
 import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.SecurityData
 import app.grapheneos.setupwizard.view.activity.SetupWizardActivity

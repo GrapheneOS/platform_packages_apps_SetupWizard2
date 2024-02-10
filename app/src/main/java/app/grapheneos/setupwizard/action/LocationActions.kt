@@ -1,7 +1,6 @@
 package app.grapheneos.setupwizard.action
 
 import android.location.LocationManager
-import android.os.UserHandle
 import android.util.Log
 import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.LocationData

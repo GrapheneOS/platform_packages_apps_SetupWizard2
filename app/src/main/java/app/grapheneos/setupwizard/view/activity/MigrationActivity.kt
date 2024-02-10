@@ -30,9 +30,9 @@ class MigrationActivity : SetupWizardActivity(
         next.setOnClickListener { MigrationActions.launchMigration(this) }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(resultCode: Int, data: Intent?) {
         Log.d(TAG, "onActivityResult: $resultCode, data=$data")
         MigrationActions.handleResult(this, resultCode)
-        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(resultCode, data)
     }
 }
