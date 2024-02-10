@@ -17,7 +17,8 @@
         android:name=".App"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SetupWizard">
+        android:theme="@style/Theme.SetupWizard"
+        tools:ignore="MissingApplicationIcon">
 
         <activity
             android:name="app.grapheneos.setupwizard.view.activity.WelcomeActivity"
@@ -37,13 +38,6 @@
         <activity android:name=".view.activity.MigrationActivity" />
         <activity android:name=".view.activity.GesturesActivity" />
         <activity android:name=".view.activity.FinishActivity" />
-
-        <provider
-            android:name=".android.contentprovider.SetupDesignConfigProvider"
-            android:authorities="com.google.android.setupwizard.partner"
-            android:directBootAware="true"
-            android:exported="true"
-            tools:ignore="ExportedContentProvider" />
     </application>
 
 </manifest>
