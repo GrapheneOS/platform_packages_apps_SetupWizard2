@@ -3,7 +3,6 @@ package app.grapheneos.setupwizard.action
 import android.app.Activity
 import android.app.ActivityOptions
 import android.app.StatusBarManager
-import android.content.Context
 import android.content.Intent
 import android.os.UserManager
 import androidx.annotation.StyleRes
@@ -69,19 +68,19 @@ object SetupWizard {
     }
 
     fun startActivity(context: Activity, intent: Intent) {
-        prepareIntent(context, intent)
+        prepareIntent(intent)
         context.startActivity(intent)
     }
 
     fun startActivityForResult(context: SetupWizardActivity, intent: Intent) {
-        prepareIntent(context, intent)
+        prepareIntent(intent)
         context.startActivityForResult(intent)
     }
 
     /**
      * Commons stuffs for launching an activity.
      */
-    private fun prepareIntent(context: Context, intent: Intent) {
+    private fun prepareIntent(intent: Intent) {
         intent.putExtra(WizardManagerHelper.EXTRA_IS_FIRST_RUN, true) // not needed on >= Q
         intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true)
         intent.putExtra(WizardManagerHelper.EXTRA_THEME, getDefaultThemeName())
