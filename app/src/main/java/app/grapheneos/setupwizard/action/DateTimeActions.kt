@@ -128,9 +128,8 @@ object DateTimeActions {
             refreshCurrentState()
         }
 
-        @SuppressLint("UnspecifiedRegisterReceiverFlag")
         fun register() {
-            appContext.registerReceiver(this, intentFilter, null, null)
+            appContext.registerReceiver(this, intentFilter)
         }
 
         fun unregister() {
