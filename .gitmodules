@@ -1,6 +1,0 @@
-[submodule "setupdesign"]
-	path = setupdesign
-	url = git@github.com:jiteshsingh/setupdesign.git
-[submodule "setupcompat"]
-	path = setupcompat
-	url = git@github.com:jiteshsingh/setupcompat.git

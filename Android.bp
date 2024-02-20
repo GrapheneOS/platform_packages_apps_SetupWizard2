@@ -1,8 +1,8 @@
 android_app {
     name: "SetupWizard",
-    srcs: ["app/src/main/java/**/*.kt"],
-    resource_dirs: ["app/src/main/res"],
-    manifest: "app/src/main/AndroidManifest.xml",
+    srcs: ["java/**/*.kt"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
 
     certificate: "platform",
     privileged: true,
@@ -10,10 +10,6 @@ android_app {
     platform_apis: true,
 
     overrides: ["Provision"],
-
-    optimize: {
-        proguard_flags_files: ["app/proguard-rules.pro"],
-    },
 
     static_libs: [
         "androidx.core_core",
