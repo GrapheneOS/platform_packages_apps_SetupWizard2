@@ -1,5 +1,5 @@
 android_app {
-    name: "SetupWizard",
+    name: "SetupWizard2",
     srcs: ["java/**/*.kt"],
     resource_dirs: ["res"],
     manifest: "AndroidManifest.xml",
