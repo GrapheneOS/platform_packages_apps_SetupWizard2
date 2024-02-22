@@ -1,14 +1,19 @@
 package app.grapheneos.setupwizard.view.activity
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.MainThread
+
 import com.google.android.setupcompat.template.FooterButtonStyleUtils
+import com.google.android.setupcompat.util.WizardManagerHelper
 import com.google.android.setupdesign.GlifLayout
+
 import app.grapheneos.setupwizard.R
+import app.grapheneos.setupwizard.action.FinishActions
 import app.grapheneos.setupwizard.action.SetupWizard
 import app.grapheneos.setupwizard.action.WelcomeActions
 import app.grapheneos.setupwizard.data.WelcomeData
@@ -25,6 +30,11 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
     private lateinit var next: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (WizardManagerHelper.isUserSetupComplete(this)) {
+            superOnCreateAtBaseClass(savedInstanceState)
+            FinishActions.finish(this)
+            return
+        }
         WelcomeActions.handleEntry(this)
         super.onCreate(savedInstanceState)
     }
@@ -45,7 +55,11 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
     override fun setupActions() {
         language.setOnClickListener { WelcomeActions.showLanguagePicker(this) }
         accessibility.setOnClickListener { WelcomeActions.accessibilitySettings(this) }
-        emergency.setOnClickListener { WelcomeActions.emergencyCall(this) }
+        if (packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_CALLING)) {
+            emergency.setOnClickListener { WelcomeActions.emergencyCall(this) }
+        } else {
+            emergency.visibility = View.GONE
+        }
         next.setOnClickListener { SetupWizard.next(this) }
     }
 }
