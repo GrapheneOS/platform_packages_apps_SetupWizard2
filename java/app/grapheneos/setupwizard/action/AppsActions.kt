@@ -6,7 +6,7 @@ import android.util.Log
 import app.grapheneos.setupwizard.view.activity.SetupWizardActivity
 
 object AppsActions {
-    private const val TAG = "MigrationActions"
+    private const val TAG = "AppsActions"
     private const val ACTION_APP_INSTALL = "app.grapheneos.setupwizard.action.APPS"
 
     init {
