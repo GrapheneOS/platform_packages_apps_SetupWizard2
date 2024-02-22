@@ -36,4 +36,7 @@
     <string name="swipe_gestures_title">Swipe to navigate your phone</string>
     <string name="swipe_gestures_desc">Learn gestures to go home, go back and switch between apps</string>
     <string name="try_it">Try it</string>
+    <string name="install_apps">Install Apps</string>
+    <string name="app_install_desc">Install or update GrapheneOS Apps and features like sandboxed google play or Vanadium.</string>
+    <string name="install">Install</string>
 </resources>

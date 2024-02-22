@@ -11,6 +11,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper
 import com.google.android.setupdesign.R
 import com.google.android.setupdesign.util.ThemeHelper
 import app.grapheneos.setupwizard.appContext
+import app.grapheneos.setupwizard.view.activity.AppsActivity
 import app.grapheneos.setupwizard.view.activity.DateTimeActivity
 import app.grapheneos.setupwizard.view.activity.FinishActivity
 import app.grapheneos.setupwizard.view.activity.GesturesActivity
@@ -32,6 +33,7 @@ object SetupWizard {
         DateTimeActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,
+        AppsActivity::class.java,
         MigrationActivity::class.java,
         GesturesActivity::class.java,
         FinishActivity::class.java
@@ -40,6 +42,7 @@ object SetupWizard {
         WelcomeActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,
+        AppsActivity::class.java,
         MigrationActivity::class.java,
         FinishActivity::class.java
     )
