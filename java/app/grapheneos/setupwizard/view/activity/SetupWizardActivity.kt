@@ -29,8 +29,12 @@ abstract class SetupWizardActivity(
     private var glifLayout: GlifLayout? = null
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    protected fun superOnCreateAtBaseClass(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        superOnCreateAtBaseClass(savedInstanceState)
         activityResultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
             onActivityResult(result.resultCode, result.data)
         }
