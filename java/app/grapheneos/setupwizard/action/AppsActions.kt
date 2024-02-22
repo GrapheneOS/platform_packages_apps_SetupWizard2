@@ -15,6 +15,7 @@ object AppsActions {
     fun launchMigration(context: SetupWizardActivity) {
         Log.d(TAG, "launchAppInstaller")
         val intent = Intent(ACTION_APP_INSTALL)
+        intent.putExtra("SuW", true)
         SetupWizard.startActivityForResult(context, intent)
     }
 
