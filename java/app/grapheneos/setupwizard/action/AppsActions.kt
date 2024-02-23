@@ -15,7 +15,7 @@ object AppsActions {
     fun launchAppsInstaller(context: SetupWizardActivity) {
         Log.d(TAG, "launchAppInstaller")
         val intent = Intent(ACTION_APP_INSTALL)
-        intent.putExtra("SuW", true)
+        intent.putExtra("app.grapheneos.apps.EXTRA_SUW", true)
         SetupWizard.startActivityForResult(context, intent)
     }
 
