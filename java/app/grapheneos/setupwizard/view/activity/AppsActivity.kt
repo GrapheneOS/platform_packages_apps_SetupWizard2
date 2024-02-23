@@ -18,16 +18,16 @@ class AppsActivity : SetupWizardActivity(
     }
 
     private lateinit var skip: View
-    private lateinit var next: View
+    private lateinit var install: View
 
     override fun bindViews() {
         skip = findViewById(R.id.skip)
-        next = findViewById(R.id.next)
+        install = findViewById(R.id.install)
     }
 
     override fun setupActions() {
         skip.setOnClickListener { SetupWizard.next(this) }
-        next.setOnClickListener { AppsActions.InstallApps(this) }
+        install.setOnClickListener { AppsActions.InstallApps(this) }
     }
 
     override fun onActivityResult(resultCode: Int, data: Intent?) {
