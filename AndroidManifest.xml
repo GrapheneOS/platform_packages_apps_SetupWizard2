@@ -38,6 +38,16 @@
         <activity android:name=".view.activity.MigrationActivity" />
         <activity android:name=".view.activity.GesturesActivity" />
         <activity android:name=".view.activity.FinishActivity" />
+
+        <!-- suppresses provider permissions warning (tools:ignore ExportedContentProvider) -->
+        <!-- anyone can read from this provider -->
+        <provider
+            android:name=".android.contentprovider.SudConfigProvider"
+            android:authorities="com.google.android.setupwizard.partner"
+            android:directBootAware="true"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
+
     </application>
 
 </manifest>
