@@ -3,7 +3,10 @@
 <permissions>
     <privapp-permissions package="app.grapheneos.setupwizard">
         <permission name="android.permission.CHANGE_CONFIGURATION"/>
+        <permission name="android.permission.MANAGE_USER_OEM_UNLOCK_STATE"/>
         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.READ_OEM_UNLOCK_STATE"/>
+        <permission name="android.permission.REBOOT"/>
         <permission name="android.permission.SET_TIME"/>
         <permission name="android.permission.SET_TIME_ZONE"/>
         <permission name="android.permission.STATUS_BAR"/>

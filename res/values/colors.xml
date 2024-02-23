@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="oem_unlocked_warning_color">#ffff8800</color>
 </resources>

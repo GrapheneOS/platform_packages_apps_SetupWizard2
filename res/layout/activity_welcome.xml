@@ -9,6 +9,44 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/oem_unlocked_container"
+        style="@style/SudContentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="@dimen/sud_glif_header_title_margin_top"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/baseline_warning_amber_orange_glif"
+            app:tint="@color/oem_unlocked_warning_color" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/oem_unlocked_warning"
+            android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/visit_this_link_on_another_device" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/oem_lock_url"
+            android:textColor="@color/oem_unlocked_warning_color" />
+    </LinearLayout>
+
+    <LinearLayout
         style="@style/SudContentFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
