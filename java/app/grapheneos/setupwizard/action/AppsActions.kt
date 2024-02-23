@@ -12,7 +12,7 @@ object AppsActions {
     init {
     }
 
-    fun InstallApps(context: SetupWizardActivity) {
+    fun launchAppsInstaller(context: SetupWizardActivity) {
         Log.d(TAG, "launchAppInstaller")
         val intent = Intent(ACTION_APP_INSTALL)
         intent.putExtra("SuW", true)
