@@ -77,7 +77,7 @@ object WelcomeActions {
         val adapter = LocalePicker.constructAdapter(activity)
         val simLocale = getSimLocale() ?: return adapter
         var localeInfo: LocaleInfo? = null
-        for (index in 0..adapter.count) {
+        for (index in 0..<adapter.count) {
             val item = adapter.getItem(index)
             if (!item?.locale?.toLanguageTag().equals(simLocale.toLanguageTag())) continue
             Log.d(TAG, "constructLocaleAdapter: found simLocale $simLocale")
