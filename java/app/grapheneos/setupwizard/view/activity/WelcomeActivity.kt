@@ -28,6 +28,7 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
     private lateinit var accessibility: View
     private lateinit var emergency: View
     private lateinit var next: View
+    private lateinit var letsSetupText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (WizardManagerHelper.isUserSetupComplete(this)) {
@@ -45,6 +46,11 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
         accessibility = findViewById(R.id.accessibility)
         emergency = findViewById(R.id.emergency)
         next = findViewById(R.id.next)
+        letsSetupText = findViewById(R.id.lets_setup_text)
+        letsSetupText.setText(
+            if (SetupWizard.isPrimaryUser) R.string.lets_setup_your_device
+            else R.string.lets_setup_your_profile
+        )
         WelcomeData.selectedLanguage.observe(this) {
             Log.d(TAG, "selectedLanguage: ${it.displayName}")
             this.language.text = it.displayName
