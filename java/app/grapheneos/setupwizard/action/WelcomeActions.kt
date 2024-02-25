@@ -73,6 +73,7 @@ object WelcomeActions {
         return appContext.getSystemService(TelephonyManager::class.java).simLocale
     }
 
+    @OptIn(ExperimentalStdlibApi::class)
     private fun constructLocaleAdapter(activity: Activity): ArrayAdapter<LocaleInfo> {
         val adapter = LocalePicker.constructAdapter(activity)
         val simLocale = getSimLocale() ?: return adapter
