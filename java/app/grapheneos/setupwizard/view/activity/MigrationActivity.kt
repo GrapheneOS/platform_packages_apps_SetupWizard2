@@ -1,6 +1,9 @@
 package app.grapheneos.setupwizard.view.activity
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import app.grapheneos.setupwizard.R
@@ -15,10 +18,26 @@ class MigrationActivity : SetupWizardActivity(
 ) {
     companion object {
         private const val TAG = "MigrationActivity"
+        private const val ACTION_BACKUP_APP_RESTORE = "com.stevesoltys.seedvault.RESTORE_BACKUP"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val intent = Intent(ACTION_BACKUP_APP_RESTORE)
+        if (intent.resolveActivity(packageManager) == null) {
+            Log.d(TAG, "backup app intent cannot be resolved")
+            hidebutton()
+        }
     }
 
     private lateinit var skip: View
     private lateinit var next: View
+
+    fun hidebutton() {
+        next.background.setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY)
+        next.isClickable = false
+        next.setText("Backup app unavailable")
+    }
 
     override fun bindViews() {
         skip = findViewById(R.id.skip)
