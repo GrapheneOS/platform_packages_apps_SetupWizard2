@@ -42,11 +42,11 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
 
     @MainThread
     override fun bindViews() {
-        language = findViewById(R.id.language)
-        accessibility = findViewById(R.id.accessibility)
-        emergency = findViewById(R.id.emergency)
-        next = findViewById(R.id.next)
-        letsSetupText = findViewById(R.id.lets_setup_text)
+        language = requireViewById(R.id.language)
+        accessibility = requireViewById(R.id.accessibility)
+        emergency = requireViewById(R.id.emergency)
+        next = requireViewById(R.id.next)
+        letsSetupText = requireViewById(R.id.lets_setup_text)
         letsSetupText.setText(
             if (SetupWizard.isPrimaryUser) R.string.lets_setup_your_device
             else R.string.lets_setup_your_profile

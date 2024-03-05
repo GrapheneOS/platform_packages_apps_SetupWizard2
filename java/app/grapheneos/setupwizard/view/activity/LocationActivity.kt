@@ -16,13 +16,13 @@ class LocationActivity : SetupWizardActivity(
     private lateinit var next: View
 
     override fun bindViews() {
-        enabled = findViewById(R.id.enabled)
-        next = findViewById(R.id.next)
+        enabled = requireViewById(R.id.enabled)
+        next = requireViewById(R.id.next)
         LocationData.enabled.observe(this) { enabled.isChecked = it }
     }
 
     override fun setupActions() {
-        findViewById<View>(R.id.enabled_container).setOnClickListener {
+        requireViewById<View>(R.id.enabled_container).setOnClickListener {
             LocationActions.setEnabled(!enabled.isChecked)
         }
         enabled.setOnClickListener { LocationActions.setEnabled(enabled.isChecked) }

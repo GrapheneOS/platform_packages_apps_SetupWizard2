@@ -103,7 +103,7 @@ object DateTimeActions {
     }
 
     private fun getAlarmManager(): AlarmManager {
-        return appContext.getSystemService(AlarmManager::class.java)
+        return appContext.getSystemService(AlarmManager::class.java)!!
     }
 
     fun handleEntry() {
@@ -188,8 +188,8 @@ object DateTimeActions {
             ) {
                 override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                     val view = super.getView(position, convertView, parent)
-                    val title = view.findViewById<TextView>(android.R.id.text1)
-                    val desc = view.findViewById<TextView>(android.R.id.text2)
+                    val title = view.requireViewById<TextView>(android.R.id.text1)
+                    val desc = view.requireViewById<TextView>(android.R.id.text2)
                     if (desc.tag == null) {
                         desc.setTextAppearance(SudR.style.TextAppearance_SudMaterialYouItemSummary)
                         desc.tag = Any()

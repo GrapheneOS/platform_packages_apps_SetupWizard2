@@ -38,7 +38,7 @@ object WelcomeActions {
             .setTitle(R.string.choose_your_language)
             .setAdapter(adapter) { _, which ->
                 updateLocale(
-                    adapter.getItem(which).locale
+                    adapter.getItem(which)!!.locale
                 )
             }
             .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
@@ -70,7 +70,7 @@ object WelcomeActions {
     }
 
     private fun getSimLocale(): Locale? {
-        return appContext.getSystemService(TelephonyManager::class.java).simLocale
+        return appContext.getSystemService(TelephonyManager::class.java)!!.simLocale
     }
 
     @OptIn(ExperimentalStdlibApi::class)

@@ -33,6 +33,6 @@ object SecurityActions {
     }
 
     private fun getKeyguardManager(): KeyguardManager {
-        return appContext.getSystemService(KeyguardManager::class.java)
+        return appContext.getSystemService(KeyguardManager::class.java)!!
     }
 }

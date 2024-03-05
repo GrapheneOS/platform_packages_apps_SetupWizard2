@@ -21,8 +21,8 @@ class MigrationActivity : SetupWizardActivity(
     private lateinit var next: View
 
     override fun bindViews() {
-        skip = findViewById(R.id.skip)
-        next = findViewById(R.id.next)
+        skip = requireViewById(R.id.skip)
+        next = requireViewById(R.id.next)
     }
 
     override fun setupActions() {

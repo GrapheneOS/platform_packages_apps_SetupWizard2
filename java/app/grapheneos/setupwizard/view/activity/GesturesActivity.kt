@@ -21,8 +21,8 @@ class GesturesActivity : SetupWizardActivity(
     private lateinit var tryIt: View
 
     override fun bindViews() {
-        skip = findViewById(R.id.skip)
-        tryIt = findViewById(R.id.try_it)
+        skip = requireViewById(R.id.skip)
+        tryIt = requireViewById(R.id.try_it)
     }
 
     override fun setupActions() {
