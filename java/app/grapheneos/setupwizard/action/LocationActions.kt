@@ -24,7 +24,7 @@ object LocationActions {
     }
 
     private fun getLocationManager(): LocationManager {
-        return appContext.getSystemService(LocationManager::class.java)
+        return appContext.getSystemService(LocationManager::class.java)!!
     }
 
 }

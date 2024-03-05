@@ -61,7 +61,7 @@ object SetupWizard {
 
     //////////////////////////////// common actions /////////////////////////
 
-    private val statusBarManager = appContext.getSystemService(StatusBarManager::class.java)
+    private val statusBarManager = appContext.getSystemService(StatusBarManager::class.java)!!
 
     fun setStatusBarHidden(hidden: Boolean) {
         statusBarManager.setDisabledForSetup(hidden)
@@ -96,6 +96,6 @@ object SetupWizard {
     }
 
     val isPrimaryUser: Boolean by lazy {
-        appContext.getSystemService(UserManager::class.java).isSystemUser
+        appContext.getSystemService(UserManager::class.java)!!.isSystemUser
     }
 }

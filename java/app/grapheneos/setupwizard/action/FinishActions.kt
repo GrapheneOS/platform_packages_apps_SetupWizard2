@@ -25,7 +25,7 @@ object FinishActions {
             Settings.Secure.USER_SETUP_COMPLETE, 1
         )
         // cleanup tasks
-        context.getSystemService(ActivityManager::class.java).appTasks.forEach {
+        context.getSystemService(ActivityManager::class.java)!!.appTasks.forEach {
             it.finishAndRemoveTask()
         }
         // finish activity

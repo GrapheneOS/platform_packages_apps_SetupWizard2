@@ -14,7 +14,7 @@ class FinishActivity : SetupWizardActivity(
     private lateinit var finish: View
 
     override fun bindViews() {
-        finish = findViewById(R.id.finish)
+        finish = requireViewById(R.id.finish)
     }
 
     override fun setupActions() {

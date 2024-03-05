@@ -36,13 +36,13 @@ class DateTimeActivity : SetupWizardActivity(
     }
 
     override fun bindViews() {
-        timezoneContainer = findViewById(R.id.timezone_container)
-        timezone = findViewById(R.id.timezone)
-        dateContainer = findViewById(R.id.date_container)
-        date = findViewById(R.id.date)
-        timeContainer = findViewById(R.id.time_container)
-        time = findViewById(R.id.time)
-        next = findViewById(R.id.next)
+        timezoneContainer = requireViewById(R.id.timezone_container)
+        timezone = requireViewById(R.id.timezone)
+        dateContainer = requireViewById(R.id.date_container)
+        date = requireViewById(R.id.date)
+        timeContainer = requireViewById(R.id.time_container)
+        time = requireViewById(R.id.time)
+        next = requireViewById(R.id.next)
         DateTimeData.timeZone.observe(this) { timezone.text = it }
         DateTimeData.date.observe(this) { date.text = it }
         DateTimeData.time.observe(this) { time.text = it }
