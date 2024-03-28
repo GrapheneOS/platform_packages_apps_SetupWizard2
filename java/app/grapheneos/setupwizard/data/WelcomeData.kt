@@ -7,6 +7,7 @@ import java.util.Locale
 
 object WelcomeData : ViewModel() {
     val selectedLanguage = MutableLiveData<Locale>()
+    val oemUnlocked = MutableLiveData<Boolean>() // bootloader unlocked
 
     init {
         WelcomeActions

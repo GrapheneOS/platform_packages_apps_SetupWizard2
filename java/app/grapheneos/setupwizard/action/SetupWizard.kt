@@ -46,17 +46,25 @@ object SetupWizard {
 
     // launch next step
     fun next(current: Activity) {
+        next(current, current.javaClass)
+    }
+
+    // launch next step for the explicitly provided current step
+    fun next(activity: Activity, currentStep: Class<out Activity>) {
         val activities = if (isPrimaryUser) primaryUserActivities else secondaryUserActivities
-        val index = activities.indexOf(current.javaClass)
+        val index = activities.indexOf(currentStep)
         if (index == -1) throw IllegalArgumentException("unknown current step")
         if (index + 1 == activities.size) throw IllegalArgumentException("no more steps")
-        val intent = Intent(current, activities[index + 1])
+        startActivity(activity, activities[index + 1])
+    }
+
+    fun startActivity(activityContext: Activity, activityClass: Class<out Activity>) {
         val options = ActivityOptions.makeCustomAnimation(
-            current,
+            activityContext,
             R.anim.sud_slide_next_in,
             R.anim.sud_slide_next_out
         ).toBundle()
-        current.startActivity(intent, options)
+        activityContext.startActivity(Intent(activityContext, activityClass), options)
     }
 
     //////////////////////////////// common actions /////////////////////////
@@ -95,7 +103,13 @@ object SetupWizard {
         return PartnerConfigHelper.getSuwDefaultThemeString(appContext)
     }
 
+    // primary user here means the first user of the device, the user that is implicitly created
+    // on first boot.
+    // any other subsequent users are secondary users
     val isPrimaryUser: Boolean by lazy {
         appContext.getSystemService(UserManager::class.java)!!.isSystemUser
+    }
+    val isSecondaryUser: Boolean by lazy {
+        !isPrimaryUser
     }
 }

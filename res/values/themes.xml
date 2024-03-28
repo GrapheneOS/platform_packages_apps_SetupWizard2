@@ -11,4 +11,10 @@
         <item name="android:minHeight">@dimen/sud_content_illustration_min_height</item>
         <item name="android:layout_marginBottom">50dp</item>
     </style>
+
+    <style name="SudCheckBox.Multiline.Primary" parent="SudCheckBox.Multiline">
+        <item name="android:buttonTint">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
 </resources>

@@ -24,6 +24,7 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
         private const val TAG = "WelcomeActivity"
     }
 
+    private lateinit var oemUnlockedContainer: View
     private lateinit var language: TextView
     private lateinit var accessibility: View
     private lateinit var emergency: View
@@ -42,6 +43,7 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
 
     @MainThread
     override fun bindViews() {
+        oemUnlockedContainer = requireViewById(R.id.oem_unlocked_container)
         language = requireViewById(R.id.language)
         accessibility = requireViewById(R.id.accessibility)
         emergency = requireViewById(R.id.emergency)
@@ -55,6 +57,10 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
             Log.d(TAG, "selectedLanguage: ${it.displayName}")
             this.language.text = it.displayName
         }
+        WelcomeData.oemUnlocked.observe(this) {
+            Log.d(TAG, "oemUnlocked: $it")
+            oemUnlockedContainer.visibility = if (it) View.VISIBLE else View.GONE
+        }
     }
 
     @MainThread
@@ -66,6 +72,6 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
         } else {
             emergency.visibility = View.GONE
         }
-        next.setOnClickListener { SetupWizard.next(this) }
+        next.setOnClickListener { WelcomeActions.next(this) }
     }
 }

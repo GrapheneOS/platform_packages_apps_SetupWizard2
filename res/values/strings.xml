@@ -38,4 +38,22 @@
     <string name="swipe_gestures_title">Swipe to navigate your phone</string>
     <string name="swipe_gestures_desc">Learn gestures to go home, go back and switch between apps</string>
     <string name="try_it">Try it</string>
+    <string name="oem_unlocked_warning">The bootloader is unlocked and software integrity can not be guaranteed. Any data stored on this device may be available to attackers. Do not store any sensitive data on this device.</string>
+    <string name="visit_this_link_on_another_device">Visit this link on another device:</string>
+    <string name="oem_lock_url" translatable="false">grapheneos.org/UBL</string>
+    <string name="lock_your_bootloader">Lock your bootloader</string>
+    <string name="oem_unlock_fullscreen_desc">
+        The bootloader is unlocked and software integrity
+        can not be guaranteed. Any data stored on this device may be available to attackers.
+        Do not store any sensitive data on this device.\n\nLocking the bootloader at a later stage
+        will wipe all the data on this device. To keep the data safe and secure we advice you to
+        lock the bootloader before setting up the device.\n\nTo lock your bootloader, visit
+        the link below on another device for instructions and then press \"Reboot to bootloader\":
+    </string>
+    <string name="reboot_to_bootloader">Reboot to bootloader</string>
+    <string name="continue_without_locking">Continue without locking</string>
+    <string name="continue_without_locking_timer">Continue without locking (%d)</string>
+    <string name="oem_unlock_ack_risks">I understand the security risks of not locking my bootloader.</string>
+    <string name="disable_oem_unlocking">Disable OEM unlocking</string>
+    <string name="disable_oem_unlocking_desc">It\'s recommended to disable OEM unlocking to improve device security</string>
 </resources>
