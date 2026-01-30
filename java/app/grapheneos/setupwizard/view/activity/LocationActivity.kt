@@ -1,29 +1,93 @@
 package app.grapheneos.setupwizard.view.activity
 
 import android.view.View
-import android.widget.CheckBox
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.LocationActions
 import app.grapheneos.setupwizard.action.SetupWizard
 import app.grapheneos.setupwizard.data.LocationData
+import com.google.android.setupdesign.GlifRecyclerLayout
+import com.google.android.setupdesign.items.ItemGroup
+import com.google.android.setupdesign.items.RecyclerItemAdapter
+import com.google.android.setupdesign.items.SwitchItem
 
 class LocationActivity : SetupWizardActivity(
     R.layout.activity_location,
     R.drawable.baseline_location_on_glif,
     R.string.location_services
 ) {
-    private lateinit var enabled: CheckBox
+    private lateinit var locationEnabled: SwitchItem
+    private lateinit var networkLocationEnabled: SwitchItem
+    private lateinit var wifiScanningAlwaysAvailableEnabled: SwitchItem
 
     override fun bindViews() {
-        enabled = requireViewById(R.id.enabled)
-        LocationData.enabled.observe(this) { enabled.isChecked = it }
+        val layout = requireViewById<GlifRecyclerLayout>(R.id.glif_layout)
+        val itemGroup = ItemGroup()
+
+        locationEnabled = SwitchItem().apply {
+            id = View.generateViewId()
+            title = getString(R.string.location_access_title)
+            summary = getString(R.string.location_access_desc)
+        }
+        itemGroup.addChild(locationEnabled)
+        LocationData.locationEnabled.observe(this) { locationEnabled.isChecked = it }
+
+        // Network location and Wi-Fi scanning are global settings.
+        if (SetupWizard.isPrimaryUser) {
+            networkLocationEnabled = SwitchItem().apply {
+                id = View.generateViewId()
+                title = getString(R.string.network_location_enabled_title)
+                summary = getString(R.string.network_location_enabled_desc)
+            }
+            itemGroup.addChild(networkLocationEnabled)
+            LocationData.networkLocationEnabled.observe(this) {
+                networkLocationEnabled.isChecked = it
+            }
+
+            wifiScanningAlwaysAvailableEnabled = SwitchItem().apply {
+                id = View.generateViewId()
+                title = getString(R.string.wifi_scanning_always_available_enabled_title)
+                summary = getString(R.string.wifi_scanning_always_available_enabled_desc)
+            }
+            itemGroup.addChild(wifiScanningAlwaysAvailableEnabled)
+            LocationData.wifiScanningAlwaysAvailableEnabled.observe(this) {
+                wifiScanningAlwaysAvailableEnabled.isChecked = it
+            }
+        }
+
+        val adapter = RecyclerItemAdapter(itemGroup)
+
+        adapter.setOnItemSelectedListener { item ->
+            if (item is SwitchItem) {
+                item.toggle(findViewById(item.viewId))
+            }
+        }
+
+        layout.adapter = adapter
     }
 
     override fun setupActions() {
-        requireViewById<View>(R.id.enabled_container).setOnClickListener {
-            LocationActions.setEnabled(!enabled.isChecked)
+        locationEnabled.setOnCheckedChangeListener { _, isChecked ->
+            val areDependentsEnabled = isChecked
+            networkLocationEnabled.isEnabled = areDependentsEnabled
+            wifiScanningAlwaysAvailableEnabled.isEnabled = areDependentsEnabled
+            LocationActions.setLocationEnabled(isChecked)
         }
-        enabled.setOnClickListener { LocationActions.setEnabled(enabled.isChecked) }
+
+        // Network location and Wi-Fi scanning are global settings.
+        if (SetupWizard.isPrimaryUser) {
+            networkLocationEnabled.run {
+                setOnCheckedChangeListener { _, isChecked ->
+                    LocationActions.setNetworkLocationEnabled(isChecked)
+                }
+            }
+
+            wifiScanningAlwaysAvailableEnabled.run {
+                setOnCheckedChangeListener { _, isChecked ->
+                    LocationActions.setWifiScanningAlwaysAvailableEnabled(isChecked)
+                }
+            }
+        }
+
         primaryButton.setOnClickListener { SetupWizard.next(this) }
     }
 }

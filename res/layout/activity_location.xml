@@ -1,34 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.google.android.setupdesign.GlifLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.setupdesign.GlifRecyclerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/glif_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/enabled_container"
-        style="@style/SudContentFrame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:background="?android:attr/selectableItemBackground"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/enabled"
-            style="@style/SudCheckBox.Multiline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true" />
-
-        <TextView
-            style="@style/SudCheckBox.Multiline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/location_access_desc" />
-    </LinearLayout>
-</com.google.android.setupdesign.GlifLayout>
+</com.google.android.setupdesign.GlifRecyclerLayout>

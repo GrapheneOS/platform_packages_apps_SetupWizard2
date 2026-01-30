@@ -4,8 +4,10 @@
     package="app.grapheneos.setupwizard"
     tools:ignore="ProtectedPermissions">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.MANAGE_USER_OEM_UNLOCK_STATE" />
+    <uses-permission android:name="android.permission.NETWORK_SETUP_WIZARD" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_OEM_UNLOCK_STATE" />
     <uses-permission android:name="android.permission.REBOOT" />
