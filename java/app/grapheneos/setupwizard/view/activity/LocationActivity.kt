@@ -16,7 +16,9 @@ class LocationActivity : SetupWizardActivity(
     R.string.location_services
 ) {
     private lateinit var locationEnabled: SwitchItem
+    // only initialized when in primary user
     private lateinit var networkLocationEnabled: SwitchItem
+    // only initialized when in primary user
     private lateinit var wifiScanningAlwaysAvailableEnabled: SwitchItem
 
     override fun bindViews() {
@@ -67,9 +69,11 @@ class LocationActivity : SetupWizardActivity(
 
     override fun setupActions() {
         locationEnabled.setOnCheckedChangeListener { _, isChecked ->
-            val areDependentsEnabled = isChecked
-            networkLocationEnabled.isEnabled = areDependentsEnabled
-            wifiScanningAlwaysAvailableEnabled.isEnabled = areDependentsEnabled
+            if (SetupWizard.isPrimaryUser) {
+                val areDependentsEnabled = isChecked
+                networkLocationEnabled.isEnabled = areDependentsEnabled
+                wifiScanningAlwaysAvailableEnabled.isEnabled = areDependentsEnabled
+            }
             LocationActions.setLocationEnabled(isChecked)
         }
 
