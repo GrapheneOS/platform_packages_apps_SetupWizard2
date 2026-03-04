@@ -8,6 +8,7 @@ object LocationData : ViewModel() {
     val locationEnabled = MutableLiveData<Boolean>()
     val networkLocationEnabled = MutableLiveData<Boolean>()
     val wifiScanningAlwaysAvailableEnabled = MutableLiveData<Boolean>()
+    val geocoderEnabled = MutableLiveData<Boolean>()
 
     init {
         LocationActions

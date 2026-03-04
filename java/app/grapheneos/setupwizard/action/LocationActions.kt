@@ -1,5 +1,8 @@
 package app.grapheneos.setupwizard.action
 
+import android.ext.settings.GeocoderSettings.GEOCODER_DISABLED
+import android.ext.settings.GeocoderSettings.GEOCODER_SERVER_GRAPHENEOS
+import android.ext.settings.GeocoderSettings.GEOCODER_SETTING
 import android.ext.settings.NetworkLocationSettings.NETWORK_LOCATION_DISABLED
 import android.ext.settings.NetworkLocationSettings.NETWORK_LOCATION_GRAPHENEOS_APPLE_PROXY
 import android.ext.settings.NetworkLocationSettings.NETWORK_LOCATION_SETTING
@@ -37,6 +40,15 @@ object LocationActions {
         refreshCurrentState()
     }
 
+    fun setGeocoderEnabled(enabled: Boolean) {
+        Log.d(TAG, "setGeocoderEnabled: $enabled")
+        GEOCODER_SETTING.put(
+            appContext,
+            if (enabled) GEOCODER_SERVER_GRAPHENEOS else GEOCODER_DISABLED
+        )
+        refreshCurrentState()
+    }
+
     private fun refreshCurrentState() {
         LocationData.locationEnabled.value = getLocationManager().isLocationEnabled
         Log.d(TAG, "refreshCurrentState: locationEnabled = ${LocationData.locationEnabled.value}")
@@ -53,6 +65,13 @@ object LocationActions {
         Log.d(
             TAG,
             "refreshCurrentState: wifiScanningAlwaysAvailableEnabled = ${LocationData.wifiScanningAlwaysAvailableEnabled.value}"
+        )
+
+        LocationData.geocoderEnabled.value =
+            GEOCODER_SETTING.get(appContext) != GEOCODER_DISABLED
+        Log.d(
+            TAG,
+            "refreshCurrentState: geocoderEnabled = ${LocationData.geocoderEnabled.value}"
         )
     }
 

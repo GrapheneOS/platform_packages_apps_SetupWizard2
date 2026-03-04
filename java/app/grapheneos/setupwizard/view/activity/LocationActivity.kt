@@ -20,6 +20,8 @@ class LocationActivity : SetupWizardActivity(
     private lateinit var networkLocationEnabled: SwitchItem
     // only initialized when in primary user
     private lateinit var wifiScanningAlwaysAvailableEnabled: SwitchItem
+    // only initialized when in primary user
+    private lateinit var geocoderEnabled: SwitchItem
 
     override fun bindViews() {
         val layout = requireViewById<GlifRecyclerLayout>(R.id.glif_layout)
@@ -33,7 +35,7 @@ class LocationActivity : SetupWizardActivity(
         itemGroup.addChild(locationEnabled)
         LocationData.locationEnabled.observe(this) { locationEnabled.isChecked = it }
 
-        // Network location and Wi-Fi scanning are global settings.
+        // Network location, Wi-Fi scanning, and Geocoder are global settings.
         if (SetupWizard.isPrimaryUser) {
             networkLocationEnabled = SwitchItem().apply {
                 id = View.generateViewId()
@@ -53,6 +55,16 @@ class LocationActivity : SetupWizardActivity(
             itemGroup.addChild(wifiScanningAlwaysAvailableEnabled)
             LocationData.wifiScanningAlwaysAvailableEnabled.observe(this) {
                 wifiScanningAlwaysAvailableEnabled.isChecked = it
+            }
+
+            geocoderEnabled = SwitchItem().apply {
+                id = View.generateViewId()
+                title = getString(R.string.geocoder_enabled_title)
+                summary = getString(R.string.geocoder_enabled_desc)
+            }
+            itemGroup.addChild(geocoderEnabled)
+            LocationData.geocoderEnabled.observe(this) {
+                geocoderEnabled.isChecked = it
             }
         }
 
@@ -77,7 +89,7 @@ class LocationActivity : SetupWizardActivity(
             LocationActions.setLocationEnabled(isChecked)
         }
 
-        // Network location and Wi-Fi scanning are global settings.
+        // Network location, Wi-Fi scanning, and Geocoder are global settings.
         if (SetupWizard.isPrimaryUser) {
             networkLocationEnabled.run {
                 setOnCheckedChangeListener { _, isChecked ->
@@ -88,6 +100,12 @@ class LocationActivity : SetupWizardActivity(
             wifiScanningAlwaysAvailableEnabled.run {
                 setOnCheckedChangeListener { _, isChecked ->
                     LocationActions.setWifiScanningAlwaysAvailableEnabled(isChecked)
+                }
+            }
+
+            geocoderEnabled.run {
+                setOnCheckedChangeListener { _, isChecked ->
+                    LocationActions.setGeocoderEnabled(isChecked)
                 }
             }
         }
