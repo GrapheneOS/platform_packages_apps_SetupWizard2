@@ -11,15 +11,21 @@ import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.result.ActivityResultLauncher
 import app.grapheneos.setupwizard.APPLY_SIM_LANGUAGE_ON_ENTRY
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.WelcomeData
 import app.grapheneos.setupwizard.utils.DebugFlags
+import app.grapheneos.setupwizard.view.activity.MdmInstallActivity
 import app.grapheneos.setupwizard.view.activity.OemUnlockActivity
 import com.android.internal.app.LocalePicker
 import com.android.internal.app.LocalePicker.LocaleInfo
 import com.google.android.setupcompat.util.SystemBarHelper
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 import java.util.Locale
 
 object WelcomeActions {
@@ -27,6 +33,8 @@ object WelcomeActions {
     private const val ACTION_ACCESSIBILITY = "android.settings.ACCESSIBILITY_SETTINGS_FOR_SUW"
     private const val REBOOT_REASON_BOOTLOADER = "bootloader"
     private var simLocaleApplied = false
+    private var qrToast: Toast? = null
+    private var barcodeLauncher: ActivityResultLauncher<ScanOptions>? = null
 
     init {
         refreshCurrentLocale()
@@ -38,6 +46,7 @@ object WelcomeActions {
         SetupWizard.setStatusBarHidden(true)
         SystemBarHelper.setBackButtonVisible(context.window, false)
         if (APPLY_SIM_LANGUAGE_ON_ENTRY) applySimLocale()
+        initQrProvisioning(context as ComponentActivity)
     }
 
     fun showLanguagePicker(activity: Activity) {
@@ -144,5 +153,49 @@ object WelcomeActions {
         }
 
         WelcomeData.oemUnlocked.value = getOemLockManager()?.isDeviceOemUnlocked ?: false
+    }
+
+    fun handleConsecutiveTap(welcomeTapCounter: Int, activity: ComponentActivity) {
+        qrToast?.cancel()
+        val tapThreshold = activity.resources.getInteger(R.integer.qr_provision_tap_threshold)
+        val toastFloor = (tapThreshold - 3).coerceAtLeast(1)
+        if (welcomeTapCounter >= tapThreshold) {
+            startQrProvisioning()
+            return
+        }
+        if (welcomeTapCounter < toastFloor) return
+        val tapsRemaining = tapThreshold - welcomeTapCounter
+        val msg = activity.resources.getQuantityString(
+            R.plurals.qr_provision_toast,
+            tapsRemaining,
+            tapsRemaining
+        )
+        qrToast = Toast.makeText(activity, msg, Toast.LENGTH_LONG).also { it.show() }
+    }
+
+    private fun initQrProvisioning(activity: ComponentActivity) {
+        // Always re-register for the new activity instance. Holding a launcher in a singleton
+        // across activity recreation would leave it bound to a destroyed activity and crash
+        // when launched.
+        barcodeLauncher = activity.registerForActivityResult(ScanContract()) { result ->
+            if (result.contents == null) {
+                Toast.makeText(activity, R.string.qr_provisioning_cancelled, Toast.LENGTH_LONG).show()
+            } else {
+                launchQrProvisioning(activity, result.contents)
+            }
+        }
+    }
+
+    fun startQrProvisioning() {
+        val options = ScanOptions()
+            .setDesiredBarcodeFormats(ScanOptions.QR_CODE)
+            .setBeepEnabled(false)
+        barcodeLauncher?.launch(options)
+    }
+
+    fun launchQrProvisioning(activity: ComponentActivity, contents: String) {
+        val intent = Intent(activity, MdmInstallActivity::class.java)
+        intent.putExtra(MdmInstallActions.EXTRA_QR_CONTENTS, contents)
+        SetupWizard.startActivity(activity, intent)
     }
 }

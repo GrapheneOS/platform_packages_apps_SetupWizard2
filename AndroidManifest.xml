@@ -19,12 +19,22 @@
     <uses-permission android:name="com.stevesoltys.seedvault.RESTORE_BACKUP" />
     <uses-permission android:name="app.seamlessupdate.client.OPEN_SECURITY_PREVIEW_SETTINGS" />
 
+    <!-- MDM QR provisioning -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- To start the device owner provisioning workflow -->
+    <uses-permission android:name="android.permission.DISPATCH_PROVISIONING_MESSAGE" />
+    <!-- To install the admin app -->
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <!-- To factory reset if provisioning failed -->
+    <uses-permission android:name="android.permission.MASTER_CLEAR" />
+
 
     <application
         android:name=".App"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.SetupWizard"
+        android:hardwareAccelerated="true"
         tools:ignore="MissingApplicationIcon">
 
         <activity
@@ -47,6 +57,15 @@
         <activity android:name=".view.activity.MigrationActivity" />
         <activity android:name=".view.activity.GesturesActivity" />
         <activity android:name=".view.activity.FinishActivity" />
+
+        <!-- MDM QR provisioning -->
+        <activity android:name=".view.activity.MdmInstallActivity" />
+        <activity android:name=".view.activity.ProvisionActivity" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"
+            tools:replace="screenOrientation" />
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.AppInstaller
 import app.grapheneos.setupwizard.action.DateTimeActions
@@ -24,7 +24,9 @@ class MdmInstallActivity : SetupWizardActivity(
         private const val TAG = "MdmInstallActivity"
     }
 
-    val viewModel: MdmInstallViewModel by viewModels()
+    val viewModel: MdmInstallViewModel by lazy {
+        ViewModelProvider(this)[MdmInstallViewModel::class.java]
+    }
 
     private lateinit var spinner: ProgressBar
     private lateinit var message: TextView

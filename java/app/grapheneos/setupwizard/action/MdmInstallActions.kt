@@ -13,7 +13,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.PersistableBundle
 import android.util.Base64
-import androidx.lifecycle.viewModelScope
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.data.MdmInstallViewModel
 import app.grapheneos.setupwizard.view.activity.MdmInstallActivity
@@ -21,8 +20,6 @@ import app.grapheneos.setupwizard.view.activity.ProvisionActivity
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.android.setupcompat.util.SystemBarHelper
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.io.DataInputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -165,12 +162,12 @@ object MdmInstallActions {
 
     private fun downloadAdminApp(activity: MdmInstallActivity, viewModel: MdmInstallViewModel) {
         viewModel.message.postValue(activity.getString(R.string.downloading_admin_app))
-        viewModel.viewModelScope.launch(Dispatchers.IO) {
+        viewModel.runOnIo {
             if (downloadAdminAppSync(activity, viewModel)) {
                 viewModel.progressVisible.postValue(false)
                 if (!viewModel.calculatedPackageChecksum.equals(viewModel.packageChecksum, ignoreCase = true)) {
                     viewModel.error.postValue(activity.getString(R.string.checksum_failed))
-                    return@launch
+                    return@runOnIo
                 }
                 installAdminApp(activity, viewModel)
             }
@@ -280,7 +277,7 @@ object MdmInstallActions {
     private fun installAdminApp(activity: MdmInstallActivity, viewModel: MdmInstallViewModel) {
         viewModel.spinnerVisible.postValue(true)
         viewModel.message.postValue(activity.getString(R.string.installing_admin_app))
-        viewModel.viewModelScope.launch(Dispatchers.IO) {
+        viewModel.runOnIo {
             val error = AppInstaller.silentInstallApplication(
                 activity,
                 File(activity.filesDir, ADMIN_APK_FILE_NAME)
