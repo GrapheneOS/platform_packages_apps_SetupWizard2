@@ -15,6 +15,11 @@ android_app {
         "androidx.core_core",
         "setupcompat",
         "setupdesign",
+        "setupwizard2-jackson-core",
+        "setupwizard2-jackson-databind",
+        "setupwizard2-jackson-annotations",
+        "setupwizard2-zxing-android",
+        "setupwizard2-zxing-core",
     ],
 
     required: ["etc_permissions_app.grapheneos.setupwizard"],

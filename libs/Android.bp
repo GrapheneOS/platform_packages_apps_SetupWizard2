@@ -1,0 +1,31 @@
+android_library_import {
+    name: "setupwizard2-zxing-android",
+    aars: ["zxing-android-embedded-4.3.0.aar"],
+    sdk_version: "current",
+}
+
+java_import {
+    name: "setupwizard2-zxing-core",
+    jars: ["zxing-core-3.4.1.jar"],
+    sdk_version: "current",
+}
+
+java_import {
+    name: "setupwizard2-jackson-core",
+    jars: ["jackson-core-2.18.2.jar"],
+    sdk_version: "current",
+}
+
+java_import {
+    name: "setupwizard2-jackson-databind",
+    jars: ["jackson-databind-2.18.2.jar"],
+    sdk_version: "current",
+}
+
+java_import {
+    name: "setupwizard2-jackson-annotations",
+    jars: ["jackson-annotations-2.18.2.jar"],
+    sdk_version: "current",
+}
+
+

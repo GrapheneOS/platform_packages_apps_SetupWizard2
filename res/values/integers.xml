@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="qr_provision_tap_threshold">6</integer>
+</resources>

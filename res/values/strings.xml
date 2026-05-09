@@ -63,4 +63,29 @@
     <string name="oem_unlock_ack_risks">I understand the security risks of not locking my bootloader.</string>
     <string name="disable_oem_unlocking">Disable OEM unlocking</string>
     <string name="disable_oem_unlocking_desc">It\'s recommended to disable OEM unlocking to improve device security</string>
+
+    <!-- MDM QR provisioning -->
+    <plurals name="qr_provision_toast">
+        <item quantity="one">%1$s more tap to start QR code setup</item>
+        <item quantity="other">%1$s more taps to start QR code setup</item>
+    </plurals>
+    <string name="qr_provisioning_cancelled">QR provisioning cancelled</string>
+    <string name="provisioning_title">Device provisioning</string>
+    <string name="provisioning_desc">Set up a work device by installing the mobile device management (MDM) application</string>
+    <string name="provisioning_powered">Powered by Headwind MDM</string>
+    <string name="preparing_provisioning">Provisioning the device&#8230;</string>
+    <string name="qr_parse_failed">Failed to parse the QR code contents!</string>
+    <string name="qr_missing_parameter">QR code parameter missing:&#160;</string>
+    <string name="setting_up_wifi">Setting up the WiFi connection&#8230;</string>
+    <string name="wifi_failed">Failed to set up the WiFi connection!</string>
+    <string name="downloading_admin_app">Downloading the MDM application&#8230;</string>
+    <string name="download_progress">%1$.1f of %2$.1f Mb</string>
+    <string name="download_failed">Failed to download the MDM application!&#160;</string>
+    <string name="checksum_failed">Failed to validate the MDM application - checksum is incorrect!</string>
+    <string name="installing_admin_app">Installing the MDM application&#8230;</string>
+    <string name="install_failed">Failed to install the MDM application!&#160;</string>
+    <string name="install_successful">MDM application is installed!</string>
+    <string name="error_title">Error</string>
+    <string name="button_ok">OK</string>
+    <string name="button_reset">Reset</string>
 </resources>
