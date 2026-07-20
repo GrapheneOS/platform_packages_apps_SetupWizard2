@@ -88,6 +88,19 @@ object WelcomeActions {
     @OptIn(ExperimentalStdlibApi::class)
     private fun constructLocaleAdapter(activity: Activity): ArrayAdapter<LocaleInfo> {
         val adapter = LocalePicker.constructAdapter(activity)
+        // libcore maps en-XA to en-US before LocalePicker can discard the pseudo-locale
+	 	// see https://github.com/GrapheneOS/platform_libcore/commit/95543e72b954813ae67a51a4fa524ced538d227d
+        val seenLocales = HashSet<String>()
+        var idx = 0
+        while (idx < adapter.count) {
+            val item = adapter.getItem(idx)!!
+            if (seenLocales.add(item.locale.toLanguageTag())) {
+                idx++
+            } else {
+                adapter.remove(item)
+            }
+        }
+
         val simLocale = getSimLocale() ?: return adapter
         var localeInfo: LocaleInfo? = null
         for (index in 0..<adapter.count) {
