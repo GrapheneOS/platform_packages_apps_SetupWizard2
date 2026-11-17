@@ -63,4 +63,10 @@
     <string name="oem_unlock_ack_risks">I understand the security risks of not locking my bootloader.</string>
     <string name="disable_oem_unlocking">Disable OEM unlocking</string>
     <string name="disable_oem_unlocking_desc">It\'s recommended to disable OEM unlocking to improve device security</string>
+    <string name="qr_provisioning_title">Scan QR code</string>
+    <string name="qr_provisioning_desc">Scan the setup QR code provided by your organization to set up this device as a managed device.</string>
+    <string name="qr_provisioning_invalid_code">This QR code can\'t be used to set up a managed device. Scan the setup QR code provided by your organization.</string>
+    <string name="qr_provisioning_no_camera">This device has no camera that can scan QR codes.</string>
+    <string name="qr_provisioning_camera_disabled">The camera is disabled.</string>
+    <string name="qr_provisioning_camera_error">The camera can\'t be used right now. Go back and try again.</string>
 </resources>

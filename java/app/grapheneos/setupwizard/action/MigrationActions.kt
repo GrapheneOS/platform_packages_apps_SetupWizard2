@@ -1,8 +1,11 @@
 package app.grapheneos.setupwizard.action
 
 import android.app.Activity
+import android.app.backup.BackupManager
 import android.content.Intent
+import android.os.Process
 import android.util.Log
+import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.view.activity.SetupWizardActivity
 
 object MigrationActions {
@@ -10,6 +13,11 @@ object MigrationActions {
     private const val ACTION_SEEDVAULT_RESTORE = "com.stevesoltys.seedvault.RESTORE_BACKUP"
 
     init {
+    }
+
+    // a device owner deactivates backup
+    fun isRestoreAvailable(): Boolean {
+        return BackupManager(appContext).isBackupServiceActive(Process.myUserHandle())
     }
 
     fun launchMigration(context: SetupWizardActivity) {

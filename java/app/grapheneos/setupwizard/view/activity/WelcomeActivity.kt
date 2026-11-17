@@ -3,6 +3,7 @@ package app.grapheneos.setupwizard.view.activity
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -14,21 +15,25 @@ import com.google.android.setupdesign.GlifLayout
 
 import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.FinishActions
+import app.grapheneos.setupwizard.action.QrProvisioningActions
 import app.grapheneos.setupwizard.action.SetupWizard
 import app.grapheneos.setupwizard.action.WelcomeActions
 import app.grapheneos.setupwizard.data.WelcomeData
+import app.grapheneos.setupwizard.utils.ConsecutiveTapsDetector
 import app.grapheneos.setupwizard.utils.DebugFlags
 
 // TODO: explore Material 3.0 with JetPack compose
 class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
     companion object {
         private const val TAG = "WelcomeActivity"
+        private const val QR_PROVISIONING_TAPS = 6
     }
 
     private lateinit var oemUnlockedContainer: View
     private lateinit var language: TextView
     private lateinit var accessibility: View
     private lateinit var letsSetupText: TextView
+    private var qrProvisioningTaps: ConsecutiveTapsDetector? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (WizardManagerHelper.isUserSetupComplete(this)
@@ -72,5 +77,15 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
             secondaryButton.visibility = View.GONE
         }
         primaryButton.setOnClickListener { WelcomeActions.next(this) }
+        qrProvisioningTaps = ConsecutiveTapsDetector(
+            requireViewById(R.id.grapheneos_logo), QR_PROVISIONING_TAPS
+        ) {
+            QrProvisioningActions.launchScanner(this)
+        }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        qrProvisioningTaps?.onTouchEvent(ev)
+        return super.dispatchTouchEvent(ev)
     }
 }

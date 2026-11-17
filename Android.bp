@@ -1,3 +1,11 @@
+filegroup {
+    name: "SetupWizard2-qr-srcs",
+    srcs: [
+        "java/app/grapheneos/setupwizard/provisioning/**/*.kt",
+        "java/app/grapheneos/setupwizard/utils/QrCodeScanner.kt",
+    ],
+}
+
 android_app {
     name: "SetupWizard2",
     srcs: ["java/**/*.kt"],
@@ -15,6 +23,7 @@ android_app {
         "androidx.core_core",
         "setupcompat",
         "setupdesign",
+        "zxing-core",
     ],
 
     required: ["etc_permissions_app.grapheneos.setupwizard"],

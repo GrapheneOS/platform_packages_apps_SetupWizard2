@@ -2,6 +2,7 @@ package app.grapheneos.setupwizard.action
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
@@ -17,6 +18,7 @@ import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.WelcomeData
 import app.grapheneos.setupwizard.utils.DebugFlags
 import app.grapheneos.setupwizard.view.activity.OemUnlockActivity
+import app.grapheneos.setupwizard.view.activity.WelcomeActivity
 import com.android.internal.app.LocalePicker
 import com.android.internal.app.LocalePicker.LocaleInfo
 import com.google.android.setupcompat.util.SystemBarHelper
@@ -45,9 +47,7 @@ object WelcomeActions {
         AlertDialog.Builder(activity)
             .setTitle(R.string.choose_your_language)
             .setAdapter(adapter) { _, which ->
-                updateLocale(
-                    adapter.getItem(which)!!.locale
-                )
+                adapter.getItem(which)?.let { updateLocale(it.locale) }
             }
             .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
             .create().show()
@@ -76,13 +76,15 @@ object WelcomeActions {
     fun emergencyCall(context: Activity) {
         SetupWizard.startActivity(
             context,
-            appContext.getSystemService(TelecomManager::class.java)!!
+            (appContext.getSystemService(Context.TELECOM_SERVICE) as TelecomManager)
                 .createLaunchEmergencyDialerIntent(null)
         )
     }
 
     private fun getSimLocale(): Locale? {
-        return appContext.getSystemService(TelephonyManager::class.java)!!.simLocale
+        val telephonyManager =
+            appContext.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        return telephonyManager.simLocale
     }
 
     @OptIn(ExperimentalStdlibApi::class)
@@ -112,25 +114,26 @@ object WelcomeActions {
     }
 
     fun rebootToBootloader() {
-        appContext.getSystemService(PowerManager::class.java)!!.reboot(REBOOT_REASON_BOOTLOADER)
+        val powerManager = appContext.getSystemService(Context.POWER_SERVICE) as PowerManager
+        powerManager.reboot(REBOOT_REASON_BOOTLOADER)
     }
 
     fun next(activity: Activity) {
         if (Build.isDebuggable() && DebugFlags.getBool("enableUnlockedBootloaderHandling") != true) {
             // we allow free pass for development features on debug builds of the OS
-            SetupWizard.next(activity)
+            SetupWizard.next(activity, WelcomeActivity::class.java)
             return
         }
         if (SetupWizard.isSecondaryUser) {
             // secondary users should not be bothered for this
             // the device setup (primary user setup) is already done at this point
-            SetupWizard.next(activity)
+            SetupWizard.next(activity, WelcomeActivity::class.java)
             return
         }
         if (WelcomeData.oemUnlocked.value == true) {
             SetupWizard.startActivity(activity, OemUnlockActivity::class.java)
         } else {
-            SetupWizard.next(activity)
+            SetupWizard.next(activity, WelcomeActivity::class.java)
         }
     }
 

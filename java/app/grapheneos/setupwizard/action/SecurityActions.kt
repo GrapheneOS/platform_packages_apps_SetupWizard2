@@ -2,6 +2,7 @@ package app.grapheneos.setupwizard.action
 
 import android.app.Activity
 import android.app.KeyguardManager
+import android.content.Context
 import android.content.Intent
 import app.grapheneos.setupwizard.appContext
 import app.grapheneos.setupwizard.data.SecurityData
@@ -33,6 +34,6 @@ object SecurityActions {
     }
 
     private fun getKeyguardManager(): KeyguardManager {
-        return appContext.getSystemService(KeyguardManager::class.java)!!
+        return appContext.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
     }
 }

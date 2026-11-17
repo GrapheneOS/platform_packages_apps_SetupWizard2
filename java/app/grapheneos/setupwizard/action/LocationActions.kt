@@ -1,5 +1,6 @@
 package app.grapheneos.setupwizard.action
 
+import android.content.Context
 import android.ext.settings.GeocoderSettings.GEOCODER_DISABLED
 import android.ext.settings.GeocoderSettings.GEOCODER_SERVER_GRAPHENEOS
 import android.ext.settings.GeocoderSettings.GEOCODER_SETTING
@@ -76,11 +77,11 @@ object LocationActions {
     }
 
     private fun getLocationManager(): LocationManager {
-        return appContext.getSystemService(LocationManager::class.java)!!
+        return appContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
     }
 
     private fun getWifiManager(): WifiManager {
-        return appContext.getSystemService(WifiManager::class.java)!!
+        return appContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
     }
 
 }

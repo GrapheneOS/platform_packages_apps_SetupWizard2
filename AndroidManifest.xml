@@ -5,7 +5,10 @@
     tools:ignore="ProtectedPermissions">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BACKUP" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.DISPATCH_PROVISIONING_MESSAGE" />
     <uses-permission android:name="android.permission.MANAGE_USER_OEM_UNLOCK_STATE" />
     <uses-permission android:name="android.permission.NETWORK_SETUP_WIZARD" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
@@ -46,6 +49,10 @@
         <activity android:name=".view.activity.SecurityActivity" />
         <activity android:name=".view.activity.MigrationActivity" />
         <activity android:name=".view.activity.GesturesActivity" />
+        <activity
+            android:name=".view.activity.QrProvisioningActivity"
+            android:screenOrientation="nosensor" />
+        <activity android:name=".view.activity.ProvisioningFinalizationActivity" />
         <activity android:name=".view.activity.FinishActivity" />
     </application>
 

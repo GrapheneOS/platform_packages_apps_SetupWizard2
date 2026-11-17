@@ -2,6 +2,7 @@ package app.grapheneos.setupwizard.action
 
 import android.app.Activity
 import android.app.ActivityManager
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
@@ -35,7 +36,7 @@ object FinishActions {
             Settings.Secure.USER_SETUP_COMPLETE, 1
         )
         // cleanup tasks
-        context.getSystemService(ActivityManager::class.java)!!.appTasks.forEach {
+        (context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).appTasks.forEach {
             it.finishAndRemoveTask()
         }
         // finish activity

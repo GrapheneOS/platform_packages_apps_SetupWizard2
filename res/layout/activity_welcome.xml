@@ -63,6 +63,7 @@
             android:paddingBottom="0dp">
 
             <ImageView
+                android:id="@+id/grapheneos_logo"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:contentDescription="@string/grapheneos_icon"
