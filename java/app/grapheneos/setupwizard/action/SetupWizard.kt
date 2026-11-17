@@ -3,6 +3,7 @@ package app.grapheneos.setupwizard.action
 import android.app.Activity
 import android.app.ActivityOptions
 import android.app.StatusBarManager
+import android.content.Context
 import android.content.Intent
 import android.os.UserManager
 import androidx.annotation.StyleRes
@@ -16,6 +17,7 @@ import app.grapheneos.setupwizard.view.activity.FinishActivity
 import app.grapheneos.setupwizard.view.activity.GesturesActivity
 import app.grapheneos.setupwizard.view.activity.LocationActivity
 import app.grapheneos.setupwizard.view.activity.MigrationActivity
+import app.grapheneos.setupwizard.view.activity.ProvisioningFinalizationActivity
 import app.grapheneos.setupwizard.view.activity.SecurityActivity
 import app.grapheneos.setupwizard.view.activity.SetupWizardActivity
 import app.grapheneos.setupwizard.view.activity.UpdaterSecurityPreviewActivity
@@ -36,6 +38,7 @@ object SetupWizard {
         UpdaterSecurityPreviewActivity::class.java,
         MigrationActivity::class.java,
         GesturesActivity::class.java,
+        ProvisioningFinalizationActivity::class.java,
         FinishActivity::class.java
     )
     private val secondaryUserActivities = listOf<Class<out Activity>>(
@@ -71,7 +74,8 @@ object SetupWizard {
 
     //////////////////////////////// common actions /////////////////////////
 
-    private val statusBarManager = appContext.getSystemService(StatusBarManager::class.java)!!
+    private val statusBarManager =
+        appContext.getSystemService(Context.STATUS_BAR_SERVICE) as StatusBarManager
 
     fun setStatusBarHidden(hidden: Boolean) {
         statusBarManager.setDisabledForSetup(hidden)
@@ -109,7 +113,7 @@ object SetupWizard {
     // on first boot.
     // any other subsequent users are secondary users
     val isPrimaryUser: Boolean by lazy {
-        appContext.getSystemService(UserManager::class.java)!!.isSystemUser
+        (appContext.getSystemService(Context.USER_SERVICE) as UserManager).isSystemUser
     }
     val isSecondaryUser: Boolean by lazy {
         !isPrimaryUser

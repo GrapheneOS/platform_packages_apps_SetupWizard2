@@ -1,0 +1,19 @@
+android_test {
+    name: "SetupWizard2Tests",
+    srcs: [
+        "src/**/*.kt",
+        ":SetupWizard2-qr-srcs",
+    ],
+    manifest: "AndroidManifest.xml",
+    platform_apis: true,
+
+    static_libs: [
+        "androidx.annotation_annotation",
+        "androidx.test.ext.junit",
+        "androidx.test.runner",
+        "truth",
+        "zxing-core",
+    ],
+
+    test_suites: ["device-tests"],
+}

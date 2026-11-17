@@ -103,7 +103,7 @@ object DateTimeActions {
     }
 
     private fun getAlarmManager(): AlarmManager {
-        return appContext.getSystemService(AlarmManager::class.java)!!
+        return appContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     }
 
     fun handleEntry() {

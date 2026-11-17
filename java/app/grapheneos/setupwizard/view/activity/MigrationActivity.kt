@@ -1,6 +1,7 @@
 package app.grapheneos.setupwizard.view.activity
 
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import app.grapheneos.setupwizard.R
@@ -15,6 +16,16 @@ class MigrationActivity : SetupWizardActivity(
 ) {
     companion object {
         private const val TAG = "MigrationActivity"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (!MigrationActions.isRestoreAvailable()) {
+            Log.d(TAG, "onCreate: skipping, backup service is inactive")
+            finish()
+            SetupWizard.next(this)
+        }
     }
 
     override fun bindViews() {

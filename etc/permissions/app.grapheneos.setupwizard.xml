@@ -2,7 +2,9 @@
 
 <permissions>
     <privapp-permissions package="app.grapheneos.setupwizard">
+        <permission name="android.permission.BACKUP"/>
         <permission name="android.permission.CHANGE_CONFIGURATION"/>
+        <permission name="android.permission.DISPATCH_PROVISIONING_MESSAGE"/>
         <permission name="android.permission.MANAGE_USER_OEM_UNLOCK_STATE"/>
         <permission name="android.permission.NETWORK_SETUP_WIZARD"/>
         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>

@@ -40,7 +40,7 @@ class OemUnlockActivity :
             acknowledgeRisks.isChecked = !acknowledgeRisks.isChecked
         }
         acknowledgeRisks.setOnCheckedChangeListener { _, _ ->
-            if (OemUnlockData.ackTimer.value!! > 0) return@setOnCheckedChangeListener
+            if ((OemUnlockData.ackTimer.value ?: 0) > 0) return@setOnCheckedChangeListener
             updateContinueButton(0)
         }
         secondaryButton.setOnClickListener { OemUnlockActions.next(this) }
